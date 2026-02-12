@@ -1,0 +1,17 @@
+---
+layout: default
+title: Projects
+---
+{% assign repos = site.data.repos %}
+
+<h1>Projects {{ repos.size }}</h1>
+
+<a href="/" title="Go back">Go back</a>
+
+{% for repo in repos %}
+<div class='repo'>
+    {% include repo.html repo=repo %}
+</div>
+{% else %}
+<p>Projects are under maintenance</p>
+{% endfor %}

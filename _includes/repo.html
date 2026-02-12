@@ -1,0 +1,21 @@
+{% assign repo = include.repo %}
+
+<div class="repo-header">
+    <a href="{{ repo.html_url }}" target="_blank">
+        <p>{{ repo.name }}</p>
+    </a>
+
+    <small>
+        <time datetime="{{ repo.created_at }}">
+            {{ repo.created_at | date: "%a, %b %d, %y" }}
+        </time>
+    </small>
+</div>
+
+{% if repo.topics.size > 0 %}
+<small style="display: block">
+    Topics: {{ repo.topics | join: ", " }}
+</small>
+{% endif %}
+
+<p>{{ repo.description }}</p>
