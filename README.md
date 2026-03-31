@@ -16,8 +16,6 @@ This is a GitHub Pages-powered static website featuring:
 
 - **Static Site Generator**: [Jekyll](https://jekyllrb.com/)
 - **Styling**: Custom CSS with CSS variables for theming
-- **JavaScript**: [Hotwired Turbo](https://turbo.hotwire.dev/) for SPA-like
-  navigation
 - **Hosting**: GitHub Pages
 
 ## Project Structure
@@ -42,7 +40,6 @@ This is a GitHub Pages-powered static website featuring:
 │   │   ├── simple.css   # Base styling (classless)
 │   │   └── style.css    # Custom styles
 │   └── js/
-│       ├── hotwired-turbo.js
 │       └── script.js
 ├── index.html            # Homepage
 ├── projects.html         # Projects listing
