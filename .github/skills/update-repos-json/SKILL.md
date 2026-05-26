@@ -36,7 +36,7 @@ Create a `.env` file in the project root with your token:
 echo 'GITHUB_TOKEN=ghp_xxxxxxxxxxxx' > .env
 ```
 
-The script will automatically load it. The `.env` file is in `.gitignore` to keep your token safe.
+The script will automatically load it. The `.env` file is in `.gitignore` to keep your token safe. Keep this file local and do not commit it to source control.
 
 **Option B: Using environment variable**
 
@@ -48,16 +48,16 @@ export GITHUB_TOKEN="ghp_xxxxxxxxxxxx"
 
 ### 2. Run the Fetch Script
 
-Execute [fetch-repos.sh](./scripts/fetch-repos.sh) to pull all repositories and regenerate `_data/repos.json`:
+Execute the fetch script to pull all repositories and regenerate `_data/repos.json`:
 
 ```bash
-./scripts/fetch-repos.sh barcellos-pedro
+.github/skills/update-repos-json/scripts/fetch-repos.sh barcellos-pedro
 ```
 
 Or use the default username (embedded in the script):
 
 ```bash
-./scripts/fetch-repos.sh
+.github/skills/update-repos-json/scripts/fetch-repos.sh
 ```
 
 The script will:
@@ -86,7 +86,7 @@ head -n 20 _data/repos.json
 
 By default, the script excludes **private and archived repositories**. To customize which repositories appear in your portfolio:
 
-1. Edit [fetch-repos.sh](./scripts/fetch-repos.sh) and modify the jq filter in the "Save to file" section
+1. Edit `.github/skills/update-repos-json/scripts/fetch-repos.sh` and modify the jq filter in the "Save to file" section
 2. Common customizations:
 
 ```bash
@@ -150,6 +150,6 @@ The workflow is production-ready and requires no setup beyond committing the fil
 ## See Also
 
 - [GitHub API Filtering Guide](./references/github-api-guide.md) — API parameters and filtering options
-- [Fetch Script](./scripts/fetch-repos.sh) — Implementation and customization
-- [Filter Script](./scripts/filter-repos.sh) — Customize which repos appear in your portfolio
-- [GitHub Actions Workflow](.../../../workflows/update-repos.yml) — Automated updates on every push to main
+- [Fetch Script](../../skills/update-repos-json/scripts/fetch-repos.sh) — Implementation and customization
+- [Filter Script](../../skills/update-repos-json/scripts/filter-repos.sh) — Customize which repos appear in your portfolio
+- [GitHub Actions Workflow](.../../../../workflows/update-repos.yml) — Automated updates on every push to main
