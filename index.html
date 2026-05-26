@@ -2,17 +2,37 @@
 layout: default
 title: Home
 ---
-<div class="home">
-    <img src="https://avatars.githubusercontent.com/u/33139500?v=4" alt="Pedro's profile image">
+<section class="hero">
+    <img src="/assets/images/selfie-sky.JPEG" alt="Pedro Barcellos" class="hero-avatar">
+    <div class="hero-content">
+        <h1>Pedro Barcellos</h1>
+        <p class="title">Software Engineer</p>
+        <p class="bio">
+            Backend engineer focused on Java, Spring Boot, and distributed systems.
+            I enjoy building clean APIs, crafting developer tooling, and learning
+            how things work under the hood.
+        </p>
+        <div class="social-links">
+            {% include links.html %}
+        </div>
+    </div>
+</section>
 
-    <h3>
-        <p>Pedro Barcellos dos Reis</p>
-        <p>Software Engineer</p>
-    </h3>
-
-    <a href="/projects.html">Check out my projects &rarr;</a>
-
-    <section class="links">
-        {% include links.html %}
-    </section>
-</div>
+{% assign repos = site.data.repos %}
+<section>
+    <div class="section-header">
+        <h2>Featured Projects</h2>
+        {% if repos.size > 0 %}
+        <a href="/projects.html">View all &rarr;</a>
+        {% endif %}
+    </div>
+    {% if repos.size > 0 %}
+    <div class="project-grid">
+        {% for repo in repos limit:6 %}
+            {% include repo.html repo=repo %}
+        {% endfor %}
+    </div>
+    {% else %}
+    <p style="color: var(--text-muted); text-align: center; padding: 3rem 0;">No projects yet.</p>
+    {% endif %}
+</section>

@@ -1,7 +1,13 @@
-<nav class="links">
-    {% for item in site.data.navigation %}
-    <a href="{{ item.link }}">
-        {{ item.name }}
-    </a>
-    {% endfor %}
+<nav class="site-nav">
+  {% for item in site.data.navigation %}
+  {% assign active = false %}
+  {% if page.url == item.link %}
+    {% assign active = true %}
+  {% elsif item.link == '/blog.html' and page.url contains '/blog' %}
+    {% assign active = true %}
+  {% endif %}
+  <a href="{{ item.link }}" {% if active %}class="active"{% endif %}>
+    {{ item.name }}
+  </a>
+  {% endfor %}
 </nav>

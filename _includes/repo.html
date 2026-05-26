@@ -1,21 +1,28 @@
 {% assign repo = include.repo %}
-
-<div class="repo-header">
-    <a href="{{ repo.html_url }}" target="_blank">
-        <p>{{ repo.name }}</p>
+<article class="project-card">
+  <h3>
+    <a href="{{ repo.html_url }}" target="_blank" rel="noopener">
+      {{ repo.name }}
     </a>
-
-    <small>
-        <time datetime="{{ repo.created_at }}">
-            {{ repo.created_at | date: "%a, %b %d, %y" }}
-        </time>
-    </small>
-</div>
-
-{% if repo.topics.size > 0 %}
-<small style="display: block">
-    Topics: {{ repo.topics | join: ", " }}
-</small>
-{% endif %}
-
-<p>{{ repo.description }}</p>
+  </h3>
+  <p class="description">{{ repo.description }}</p>
+  {% if repo.topics.size > 0 %}
+  <div class="project-tags">
+    {% for topic in repo.topics limit:6 %}
+    <span>{{ topic }}</span>
+    {% endfor %}
+  </div>
+  {% endif %}
+  <div class="project-actions">
+    <a href="{{ repo.html_url }}" target="_blank" rel="noopener" title="Source code">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+      Code
+    </a>
+    {% if repo.homepage and repo.homepage != "" %}
+    <a href="{{ repo.homepage }}" target="_blank" rel="noopener" title="Live demo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      Live Demo
+    </a>
+    {% endif %}
+  </div>
+</article>

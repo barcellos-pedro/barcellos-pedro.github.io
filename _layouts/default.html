@@ -11,9 +11,15 @@
 </head>
 
 <body>
+    {% include navigation.html %}
     <main>
-        {{ content }}
+        <div class="container">
+            {{ content }}
+        </div>
     </main>
+    <footer class="site-footer">
+        &copy; 2026 Pedro Barcellos. Built with <span>Jekyll</span>
+    </footer>
 </body>
 
 </html>

@@ -17,9 +17,9 @@ No tests, linting, or typechecking.
 - **Minimal Jekyll**: only plugin is `jekyll-sitemap`; `_config.yml` sets just `url`.
 - **Custom domain**: `CNAME` file at root points to `pedroreis.dev`.
 - **Gemfile.lock is gitignored** — unusual; commit it if you need reproducible builds.
-- **Navigation**: `_data/navigation.yml` defines menu items, but `navigation.html` include is **never rendered** in `default.html`. If you wire it up, add `{% include navigation.html %}` to `_layouts/default.html`.
-- **Social links** in `_data/links.yml` — rendered on the homepage via `{% include links.html %}`.
-- **Projects** (`projects.html`) read from `_data/repos.json`, which is auto-generated (see below).
+- **Navigation**: Top nav bar (`_includes/navigation.html`) is rendered in `_layouts/default.html` via `{% include navigation.html %}`. Menu items come from `_data/navigation.yml`. Active state uses exact URL match except for Blog, which highlights on any `/blog/...` path.
+- **Social links** in `_data/links.yml` — rendered on the homepage as pill buttons with inline SVG icons via `{% include links.html %}`.
+- **Projects**: `index.html` shows 6 featured projects from `_data/repos.json`; `/projects.html` shows the full list.
 - **`assets/js/script.js`** is a single `console.log("Welcome!")` — purely decorative.
 - **`_site/`** is generated and gitignored — never edit directly.
 
@@ -39,6 +39,7 @@ No tests, linting, or typechecking.
 
 ## Styling
 
-- `assets/css/simple.css` — classless base with CSS variables (`--bg`, `--accent`, `--text`).
-- `assets/css/style.css` — custom component overrides.
-- Prefer edits in existing CSS files; avoid new styling systems.
+- `assets/css/style.css` — full custom design system with CSS variables for light and dark mode (`--bg`, `--surface`, `--accent`, `--text`).
+- Inter font loaded via Google Fonts.
+- Responsive breakpoints at 900px (2-col grid) and 640px (single column / stacked hero).
+- Prefer edits in `style.css`; avoid new styling systems.

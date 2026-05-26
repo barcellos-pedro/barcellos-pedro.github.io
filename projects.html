@@ -4,14 +4,15 @@ title: Projects
 ---
 {% assign repos = site.data.repos %}
 
-<h1>Projects {{ repos.size }}</h1>
-
-<a href="/" title="Go back">Go back</a>
-
-{% for repo in repos %}
-<div class='repo'>
-    {% include repo.html repo=repo %}
+<div class="section-header">
+    <h1>All Projects ({{ repos.size }})</h1>
+    <a href="/">&larr; Back to Home</a>
 </div>
-{% else %}
-<p>Projects are under maintenance</p>
-{% endfor %}
+
+<div class="project-grid">
+    {% for repo in repos %}
+        {% include repo.html repo=repo %}
+    {% else %}
+    <p style="color: var(--text-muted); text-align: center; padding: 3rem 0; width: 100%;">No projects yet.</p>
+    {% endfor %}
+</div>

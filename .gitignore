@@ -2,3 +2,6 @@
 Gemfile.lock
 _site
 .env
+session-*.md
+package.json
+package-lock.json
