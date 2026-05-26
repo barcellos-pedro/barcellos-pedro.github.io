@@ -48,16 +48,16 @@ export GITHUB_TOKEN="ghp_xxxxxxxxxxxx"
 
 ### 2. Run the Fetch Script
 
-Execute the fetch script to pull all repositories and regenerate `_data/repos.json`:
+Execute the fetch script to pull all repositories and regenerate `_data/repos.json` from the repository root:
 
 ```bash
-.github/skills/update-repos-json/scripts/fetch-repos.sh barcellos-pedro
+./.github/skills/update-repos-json/scripts/fetch-repos.sh barcellos-pedro
 ```
 
 Or use the default username (embedded in the script):
 
 ```bash
-.github/skills/update-repos-json/scripts/fetch-repos.sh
+./.github/skills/update-repos-json/scripts/fetch-repos.sh
 ```
 
 The script will:
@@ -107,7 +107,7 @@ See [GitHub API Filtering Guide](./references/github-api-guide.md) for all avail
 
 ### Automated Updates with GitHub Actions
 
-The [GitHub Actions workflow](.../../../workflows/update-repos.yml) automatically:
+The [GitHub Actions workflow](../../workflows/update-repos.yml) automatically:
 
 - Runs on every push to `main` branch
 - Fetches your latest repositories
@@ -127,7 +127,7 @@ No manual setup needed—the workflow uses your repository's `GITHUB_TOKEN` secr
 
 ## Automation Ideas
 
-**Automated updates via GitHub Actions**: The [`.github/workflows/update-repos.yml`](.../../../workflows/update-repos.yml) workflow automatically:
+**Automated updates via GitHub Actions**: The [`.github/workflows/update-repos.yml`](../../workflows/update-repos.yml) workflow automatically:
 
 - **Trigger**: Runs on every push to the `main` branch
 - **Token security**: Uses repository secrets (`GITHUB_TOKEN`) instead of hardcoded credentials
@@ -152,4 +152,4 @@ The workflow is production-ready and requires no setup beyond committing the fil
 - [GitHub API Filtering Guide](./references/github-api-guide.md) — API parameters and filtering options
 - [Fetch Script](../../skills/update-repos-json/scripts/fetch-repos.sh) — Implementation and customization
 - [Filter Script](../../skills/update-repos-json/scripts/filter-repos.sh) — Customize which repos appear in your portfolio
-- [GitHub Actions Workflow](.../../../../workflows/update-repos.yml) — Automated updates on every push to main
+- [GitHub Actions Workflow](../../workflows/update-repos.yml) — Automated updates on every push to main
