@@ -1,0 +1,49 @@
+name: Update repos.json
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/update-repos.yml" # Trigger if workflow file changes
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  update-repos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq
+
+      - name: Fetch repositories from GitHub API
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ./.github/skills/update-repos-json/scripts/fetch-repos.sh barcellos-pedro
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if git diff --quiet _data/repos.json; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Configure git
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          git add _data/repos.json
+          git commit -m "chore: auto-update repos.json from GitHub API"
+          git push
