@@ -4,6 +4,9 @@
 - name: LinkedIn
   url: https://linkedin.com/in/pedro-barcellos
   icon: linkedin
+- name: Credly
+  url: https://www.credly.com/users/barcellos-pedro
+  icon: Credly
 - name: Twitter
   url: https://x.com/pedroreis_io
   icon: twitter
