@@ -1,6 +1,6 @@
 # AGENTS.md
 
-A Jekyll-based personal portfolio and blog on GitHub Pages at `pedroreis.dev`.
+A Jekyll-based consulting portfolio on GitHub Pages at `pedroreis.dev`.
 
 ## Dev Commands
 
@@ -17,10 +17,11 @@ No tests, linting, or typechecking.
 - **Minimal Jekyll**: only plugin is `jekyll-sitemap`; `_config.yml` sets just `url`.
 - **Custom domain**: `CNAME` file at root points to `pedroreis.dev`.
 - **Gemfile.lock is gitignored** — unusual; commit it if you need reproducible builds.
-- **Navigation**: Top nav bar (`_includes/navigation.html`) is rendered in `_layouts/default.html` via `{% include navigation.html %}`. Menu items come from `_data/navigation.yml`. Active state uses exact URL match except for Blog, which highlights on any `/blog/...` path.
-- **Social links** in `_data/links.yml` — rendered on the homepage as pill buttons with inline SVG icons via `{% include links.html %}`.
-- **Projects**: `index.html` shows 6 featured projects from `_data/repos.json`; `/projects.html` shows the full list.
-- **`assets/js/script.js`** is a single `console.log("Welcome!")` — purely decorative.
+- **Navigation**: Top nav bar (`_includes/navigation.html`) is rendered in `_layouts/default.html` via `{% include navigation.html %}`. Menu items come from `_data/navigation.yml` and point to homepage sections.
+- **Social links** in `_data/links.yml` — rendered in the contact footer with inline SVG icons via `{% include links.html %}`.
+- **Projects**: `index.html` shows curated projects from `_data/featured_projects.yml`; `/projects.html` shows and filters the full list from `_data/repos.json`.
+- **Services**: Homepage service cards are managed in `_data/services.yml`.
+- **`assets/js/script.js`** powers the terminal reveal and project archive filters.
 - **`_site/`** is generated and gitignored — never edit directly.
 
 ## repos.json Automation
@@ -33,7 +34,7 @@ No tests, linting, or typechecking.
 
 ## Content
 
-- **Posts**: `_posts/YYYY-MM-DD-title.md` with front matter `layout: post`, `title`, `author`.
+- **Featured projects**: edit `_data/featured_projects.yml`; repository URLs and archive data come from `_data/repos.json`.
 - **Projects**: edit `_data/repos.json` or re-run the fetch script.
 - **Navigation**: edit `_data/navigation.yml` (then wire it into a layout if you want it visible).
 

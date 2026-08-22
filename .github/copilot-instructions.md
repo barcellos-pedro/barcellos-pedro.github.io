@@ -1,10 +1,10 @@
 # Copilot Instructions for this repository
 
-This repository is a Jekyll-based personal portfolio and blog.
+This repository is a Jekyll-based consulting portfolio.
 
 Apply these instructions across the whole repository, especially for:
 
-- Markdown files (`*.md`) in the site root and `_posts/`
+- Markdown documentation files (`*.md`) in the site root
 - HTML templates and pages (`*.html`)
 - Jekyll configuration files (`_config.yml`, `_data/*.yml`)
 - CSS and static assets used by the site
@@ -13,7 +13,7 @@ Apply these instructions across the whole repository, especially for:
 
 - Preserve the existing Jekyll site structure and conventions.
 - Keep changes simple, clean, and consistent with the current theme.
-- Use Markdown frontmatter for posts and pages where appropriate.
+- Use Markdown frontmatter for pages where appropriate.
 - Avoid adding unnecessary JavaScript or complex build tooling.
 - Prefer editing content and styles within the existing files rather than introducing new frameworks.
 
@@ -22,9 +22,3 @@ Apply these instructions across the whole repository, especially for:
 - Keep page content concise and readable.
 - Match the existing site tone and formatting.
 - Preserve existing navigation and layout patterns unless a clear improvement is requested.
-
-## Blog post authoring
-
-- Add new posts under `_posts/` with filenames in `YYYY-MM-DD-title.md` format.
-- Use front matter such as `layout: post`, `title:`, and `author:` when appropriate.
-- Write with short paragraphs, clear headings, and minimal formatting.
