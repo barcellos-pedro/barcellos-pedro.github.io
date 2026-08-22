@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Architecture review for pedroreis.dev</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+    mermaid.initialize({ startOnLoad: true, theme: "neutral", securityLevel: "loose" });
+  </script>
+  <style>
+    :root {
+      --paper: #f3f0e8;
+      --ink: #1e293b;
+      --muted: #64748b;
+      --line: #d8d2c5;
+      --accent: #0f766e;
+      --accent-soft: #ccfbf1;
+      --danger: #dc2626;
+      --danger-soft: #fee2e2;
+      --deep: #172033;
+      --deep-soft: #334155;
+    }
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    }
+    .eyebrow { color: var(--accent); letter-spacing: .16em; }
+    .report-rule { border-color: var(--line); }
+    .candidate { border: 1px solid var(--line); background: rgba(255,255,255,.58); }
+    .diagram-frame { min-height: 290px; background: rgba(255,255,255,.72); border: 1px solid var(--line); }
+    .diagram-title { color: var(--muted); letter-spacing: .14em; }
+    .diagram-box { border: 1px solid #94a3b8; background: #fff; }
+    .diagram-box.deep { border: 3px solid var(--deep); background: linear-gradient(135deg, #172033, #334155); color: #f8fafc; }
+    .diagram-box.soft { background: #e2e8f0; color: #475569; }
+    .diagram-arrow { color: var(--danger); font-size: 1.3rem; }
+    .seam { border-top: 1px dashed var(--accent); }
+    .leak { color: var(--danger); }
+    .badge-strong { background: #d1fae5; color: #065f46; }
+    .badge-worth { background: #fef3c7; color: #92400e; }
+    .badge-speculative { background: #e2e8f0; color: #475569; }
+    .file { color: #475569; }
+    .win { position: relative; padding-left: 1rem; }
+    .win::before { content: ""; position: absolute; left: 0; top: .6em; width: .38rem; height: .38rem; border-radius: 50%; background: var(--accent); }
+    .tiny { font-size: .7rem; }
+    .mermaid { min-height: 240px; display: grid; place-items: center; }
+  </style>
+</head>
+<body>
+  <main class="mx-auto max-w-6xl space-y-12 px-6 py-12 md:px-10">
+    <header class="border-b report-rule pb-8">
+      <div class="flex flex-wrap items-end justify-between gap-5">
+        <div>
+          <p class="eyebrow mb-3 font-mono text-xs font-semibold">ARCHITECTURE REVIEW</p>
+          <h1 class="text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">pedroreis.dev</h1>
+          <p class="mt-3 max-w-2xl text-slate-600">Deepening opportunities found around the recently changed homepage, Projects archive, shared project-card module, and browser-side behavior.</p>
+        </div>
+        <div class="font-mono text-right text-xs text-slate-500">
+          <div>2026-08-21</div>
+          <div>5 candidates</div>
+        </div>
+      </div>
+      <div class="mt-6 flex flex-wrap gap-3 font-mono text-xs text-slate-600">
+        <span class="rounded border border-slate-300 bg-white px-3 py-2">solid box = module</span>
+        <span class="rounded border border-teal-300 bg-teal-50 px-3 py-2">dashed line = seam</span>
+        <span class="rounded border border-red-200 bg-red-50 px-3 py-2">red = leakage</span>
+        <span class="rounded border-2 border-slate-800 bg-slate-800 px-3 py-2 text-white">dark box = deep module</span>
+      </div>
+      <p class="mt-5 text-sm text-slate-500">No <code>CONTEXT.md</code> or <code>docs/adr/</code> exists, so there are no domain terms or recorded decisions to preserve or revisit.</p>
+    </header>
+
+    <section id="candidates" class="space-y-10">
+      <article id="archive-projection" class="candidate rounded-xl p-6 shadow-sm md:p-8">
+        <div class="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <p class="eyebrow mb-2 font-mono text-xs font-semibold">01 / BUILD-TIME DATA</p>
+            <h2 class="text-2xl font-semibold tracking-tight">Deepen the archive curation projection</h2>
+          </div>
+          <span class="badge-strong rounded-full px-3 py-1 font-mono text-xs font-semibold">Strong</span>
+        </div>
+        <div class="mt-6 grid gap-6 lg:grid-cols-[.9fr_1.1fr]">
+          <div class="space-y-5 text-sm leading-6">
+            <div><h3 class="font-mono text-xs font-semibold uppercase tracking-wider text-slate-500">Files</h3><p class="file mt-2 font-mono text-xs">projects.html:5-20,45-73<br>_data/project_categories.yml<br>_data/repos.json</p></div>
+            <div><h3 class="font-mono text-xs font-semibold uppercase tracking-wider text-slate-500">Problem</h3><p class="mt-2">The archive module repeats category lookup while mixing normalization, counting, grouping, and rendering. Missing entries silently fall into the personal group.</p></div>
+            <div><h3 class="font-mono text-xs font-semibold uppercase tracking-wider text-slate-500">Solution</h3><p class="mt-2">Concentrate the build-time projection in one deep module that combines repository records with curation records before the page renders.</p></div>
+            <div><h3 class="font-mono text-xs font-semibold uppercase tracking-wider text-slate-500">Benefits</h3><ul class="mt-2 space-y-1"><li class="win">locality: grouping rules live once</li><li class="win">leverage: one projection feeds both groups</li><li class="win">tests hit the interface</li><li class="win">missing categories become visible failures</li></ul></div>
+          </div>
+          <div class="grid gap-4 md:grid-cols-2">
+            <div class="diagram-frame rounded-lg p-4">
+              <p class="diagram-title mb-4 font-mono text-[10px] font-semibold uppercase">Before / repeated knowledge</p>
+              <div class="space-y-3 text-center font-mono text-[10px]">
+                <div class="diagram-box rounded p-3">repos.json</div>
+                <div class="grid grid-cols-3 gap-2"><div class="diagram-box rounded p-2">lookup</div><div class="diagram-box rounded p-2">lookup</div><div class="diagram-box rounded p-2">lookup</div></div>
+                <div class="flex justify-center gap-4 text-slate-400"><span>↓</span><span>↓</span><span>↓</span></div>
+                <div class="grid grid-cols-2 gap-2"><div class="diagram-box soft rounded p-3">production loop</div><div class="diagram-box soft rounded p-3">personal loop</div></div>
+                <div class="leak text-xs">category rules leak into rendering</div>
+              </div>
+            </div>
+            <div class="diagram-frame rounded-lg p-4">
+              <p class="diagram-title mb-4 font-mono text-[10px] font-semibold uppercase">After / concentrated depth</p>
+              <div class="flex h-[230px] items-center justify-center font-mono text-[10px]">
+                <div class="diagram-box deep w-full rounded-lg p-5 text-center shadow-lg">
+                  <div class="text-xs font-semibold uppercase tracking-wider">Archive projection module</div>
+                  <div class="seam my-4"></div>
+                  <div class="grid grid-cols-3 gap-2 text-[9px] text-slate-300"><span>join records</span><span>classify</span><span>count</span></div>
+                  <p class="mt-5 text-slate-300">one build-time result<br>for both groups</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article id="project-card" class="candidate rounded-xl p-6 shadow-sm md:p-8">
+        <div class="flex flex-wrap items-start justify-between gap-4">
+          <div><p class="eyebrow mb-2 font-mono text-xs font-semibold">02 / SHARED RENDERING</p><h2 class="text-2xl font-semibold tracking-tight">Deepen the project-card module</h2></div>
+          <span class="badge-strong rounded-full px-3 py-1 font-mono text-xs font-semibold">Strong</span>
+        </div>
+        <div class="mt-6 grid gap-6 lg:grid-cols-[.9fr_1.1fr]">
+          <div class="space-y-5 text-sm leading-6">
+            <div><h3 class="font-mono text-xs font-semibold uppercase tracking-wider text-slate-500">Files</h3><p class="file mt-2 font-mono text-xs">_includes/repo.html:1-33<br>index.html:42-49<br>projects.html:51-73</p></div>
+            <div><h3 class="font-mono text-xs font-semibold uppercase tracking-wider text-slate-500">Problem</h3><p class="mt-2">The shared module accepts unrelated optional variants and emits both visual markup and the DOM data contract consumed by browser behavior.</p></div>
+            <div><h3 class="font-mono text-xs font-semibold uppercase tracking-wider text-slate-500">Solution</h3><p class="mt-2">Normalize project presentation before rendering, then keep one coherent project-card module behind a smaller caller interface.</p></div>
+            <div><h3 class="font-mono text-xs font-semibold uppercase tracking-wider text-slate-500">Benefits</h3><ul class="mt-2 space-y-1"><li class="win">locality: card rules change in one place</li><li class="win">leverage: homepage and archive share behavior</li><li class="win">tests cover raw and curated records</li><li class="win">fewer optional inputs at the seam</li></ul></div>
+          </div>
+          <div class="grid gap-4 md:grid-cols-2">
+            <div class="diagram-frame rounded-lg p-4">
+              <p class="diagram-title mb-4 font-mono text-[10px] font-semibold uppercase">Before / caller-specific surface</p>
+              <div class="space-y-3 text-center font-mono text-[10px]"><div class="grid grid-cols-2 gap-2"><div class="diagram-box rounded p-3">homepage caller<br><span class="text-slate-400">featured_*</span></div><div class="diagram-box rounded p-3">archive caller<br><span class="text-slate-400">category_*</span></div></div><div class="diagram-arrow">↓ &nbsp; ↓</div><div class="diagram-box rounded p-4">repo.html<br><span class="text-slate-500">markup + data contract</span></div><div class="leak">caller variants leak through the seam</div></div>
+            </div>
+            <div class="diagram-frame rounded-lg p-4">
+              <p class="diagram-title mb-4 font-mono text-[10px] font-semibold uppercase">After / one coherent role</p>
+              <div class="flex h-[230px] items-center justify-center font-mono text-[10px]"><div class="diagram-box deep w-full rounded-lg p-5 text-center shadow-lg"><div class="text-xs font-semibold uppercase tracking-wider">Project-card module</div><div class="seam my-4"></div><p class="text-slate-300">presentation data in<br>card markup out</p><div class="mt-4 rounded border border-slate-500 px-2 py-1 text-[9px] text-slate-300">internal DOM details</div></div></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article id="archive-filter" class="candidate rounded-xl p-6 shadow-sm md:p-8">
+        <div class="flex flex-wrap items-start justify-between gap-4">
+          <div><p class="eyebrow mb-2 font-mono text-xs font-semibold">03 / BROWSER BEHAVIOR</p><h2 class="text-2xl font-semibold tracking-tight">Deepen the archive filtering module</h2></div>
+          <span class="badge-strong rounded-full px-3 py-1 font-mono text-xs font-semibold">Strong</span>
+        </div>
+        <div class="mt-6 grid gap-6 lg:grid-cols-[.9fr_1.1fr]">
+          <div class="space-y-5 text-sm leading-6">
+            <div><h3 class="font-mono text-xs font-semibold uppercase tracking-wider text-slate-500">Files</h3><p class="file mt-2 font-mono text-xs">assets/js/script.js:13-62<br>projects.html:31-77<br>assets/css/style.css:498-600</p></div>
+            <div><h3 class="font-mono text-xs font-semibold uppercase tracking-wider text-slate-500">Problem</h3><p class="mt-2">The archive filter is coupled to global DOM selectors, data attributes, nested tag markup, group visibility, and empty-state behavior inside one closure.</p></div>
+            <div><h3 class="font-mono text-xs font-semibold uppercase tracking-wider text-slate-500">Solution</h3><p class="mt-2">Separate terminal reveal from archive filtering and concentrate matching, state transitions, and DOM updates in the archive filtering module.</p></div>
+            <div><h3 class="font-mono text-xs font-semibold uppercase tracking-wider text-slate-500">Benefits</h3><ul class="mt-2 space-y-1"><li class="win">locality: archive behavior stops sharing a file</li><li class="win">leverage: one matcher drives every state</li><li class="win">tests cover search and topic outcomes</li><li class="win">the interface is the test surface</li></ul></div>
+          </div>
+          <div class="grid gap-4 md:grid-cols-2">
+            <div class="diagram-frame rounded-lg p-4"><p class="diagram-title mb-4 font-mono text-[10px] font-semibold uppercase">Before / global coupling</p><pre class="mermaid">flowchart TB
+              DOM[Generated DOM] --> JS[script.js]
+              JS --> T[terminal reveal]
+              JS --> M[match cards]
+              JS --> G[hide groups]
+              JS --> E[empty state]
+              M -. leak .-> D[data-* attributes]
+              classDef leak stroke:#dc2626,stroke-width:2px;
+              class D leak</pre></div>
+            <div class="diagram-frame rounded-lg p-4"><p class="diagram-title mb-4 font-mono text-[10px] font-semibold uppercase">After / local behavior</p><div class="flex h-[230px] items-center justify-center font-mono text-[10px]"><div class="diagram-box deep w-full rounded-lg p-5 text-center shadow-lg"><div class="text-xs font-semibold uppercase tracking-wider">Archive filtering module</div><div class="seam my-4"></div><div class="grid grid-cols-3 gap-2 text-[9px] text-slate-300"><span>match</span><span>state</span><span>render</span></div><p class="mt-5 text-slate-300">terminal reveal stays separate</p></div></div></div>
+          </div>
+        </div>
+      </article>
+
+      <article id="metadata-adapter" class="candidate rounded-xl p-6 shadow-sm md:p-8">
+        <div class="flex flex-wrap items-start justify-between gap-4">
+          <div><p class="eyebrow mb-2 font-mono text-xs font-semibold">04 / EXTERNAL DATA</p><h2 class="text-2xl font-semibold tracking-tight">Separate repository metadata from portfolio curation</h2></div>
+          <span class="badge-worth rounded-full px-3 py-1 font-mono text-xs font-semibold">Worth exploring</span>
+        </div>
+        <div class="mt-6 grid gap-6 lg:grid-cols-[.9fr_1.1fr]">
+          <div class="space-y-5 text-sm leading-6">
+            <div><h3 class="font-mono text-xs font-semibold uppercase tracking-wider text-slate-500">Files</h3><p class="file mt-2 font-mono text-xs">_data/repos.json<br>_data/project_categories.yml<br>projects.html:5-12<br>.github/workflows/update-repos.yml</p></div>
+            <div><h3 class="font-mono text-xs font-semibold uppercase tracking-wider text-slate-500">Problem</h3><p class="mt-2">The external repository metadata adapter passes upstream descriptions and topics directly into portfolio rendering, including stale blog wording after the blog was removed.</p></div>
+            <div><h3 class="font-mono text-xs font-semibold uppercase tracking-wider text-slate-500">Solution</h3><p class="mt-2">Keep fetched metadata immutable and let a portfolio curation module decide what is visible and which text belongs in the archive.</p></div>
+            <div><h3 class="font-mono text-xs font-semibold uppercase tracking-wider text-slate-500">Benefits</h3><ul class="mt-2 space-y-1"><li class="win">locality: corrections survive metadata refreshes</li><li class="win">leverage: curation rules serve every page</li><li class="win">tests use stable fixture metadata</li><li class="win">the adapter stops leaking upstream meaning</li></ul></div>
+          </div>
+          <div class="grid gap-4 md:grid-cols-2">
+            <div class="diagram-frame rounded-lg p-4"><p class="diagram-title mb-4 font-mono text-[10px] font-semibold uppercase">Before / upstream leakage</p><div class="flex h-[230px] flex-col items-center justify-center gap-3 font-mono text-[10px]"><div class="diagram-box rounded p-3">GitHub metadata adapter</div><div class="diagram-arrow">↓</div><div class="diagram-box soft rounded p-4">portfolio archive</div><div class="leak">upstream meaning crosses the seam</div></div></div>
+            <div class="diagram-frame rounded-lg p-4"><p class="diagram-title mb-4 font-mono text-[10px] font-semibold uppercase">After / owned meaning</p><div class="flex h-[230px] items-center justify-center font-mono text-[10px]"><div class="w-full space-y-3"><div class="diagram-box soft rounded p-3 text-center">metadata adapter</div><div class="mx-auto h-5 w-px bg-teal-600"></div><div class="diagram-box deep rounded-lg p-4 text-center shadow-lg"><div class="text-xs font-semibold uppercase tracking-wider">Portfolio curation module</div><p class="mt-3 text-slate-300">owned visibility and meaning</p></div></div></div></div>
+          </div>
+        </div>
+      </article>
+
+      <article id="terminal-module" class="candidate rounded-xl p-6 shadow-sm md:p-8">
+        <div class="flex flex-wrap items-start justify-between gap-4">
+          <div><p class="eyebrow mb-2 font-mono text-xs font-semibold">05 / BRAND DECORATION</p><h2 class="text-2xl font-semibold tracking-tight">Delete or deepen the terminal reveal module</h2></div>
+          <span class="badge-speculative rounded-full px-3 py-1 font-mono text-xs font-semibold">Speculative</span>
+        </div>
+        <div class="mt-6 grid gap-6 lg:grid-cols-[.9fr_1.1fr]">
+          <div class="space-y-5 text-sm leading-6">
+            <div><h3 class="font-mono text-xs font-semibold uppercase tracking-wider text-slate-500">Files</h3><p class="file mt-2 font-mono text-xs">_includes/hero-terminal.html<br>assets/js/script.js:1-11<br>assets/css/style.css:231-287,672-680</p></div>
+            <div><h3 class="font-mono text-xs font-semibold uppercase tracking-wider text-slate-500">Problem</h3><p class="mt-2">The terminal module hardcodes its content and adds only timer-driven class changes, while reduced motion is split between CSS and JavaScript.</p></div>
+            <div><h3 class="font-mono text-xs font-semibold uppercase tracking-wider text-slate-500">Solution</h3><p class="mt-2">Keep the terminal only if it is a deliberate brand asset; otherwise apply the deletion test and remove the include, animation branch, and styles.</p></div>
+            <div><h3 class="font-mono text-xs font-semibold uppercase tracking-wider text-slate-500">Benefits</h3><ul class="mt-2 space-y-1"><li class="win">deletion test: no complexity spreads</li><li class="win">locality: fewer motion rules to verify</li><li class="win">tests cover meaningful hero content</li><li class="win">deepening earns leverage only if reused</li></ul></div>
+          </div>
+          <div class="grid gap-4 md:grid-cols-2">
+            <div class="diagram-frame rounded-lg p-4"><p class="diagram-title mb-4 font-mono text-[10px] font-semibold uppercase">Before / thin animation seam</p><div class="flex h-[230px] flex-col items-center justify-center gap-3 font-mono text-[10px]"><div class="diagram-box rounded p-3">hardcoded terminal markup</div><div class="diagram-arrow">↓</div><div class="grid grid-cols-2 gap-2"><div class="diagram-box soft rounded p-3">CSS opacity</div><div class="diagram-box soft rounded p-3">JS timers</div></div><div class="leak">animation complexity for little behavior</div></div></div>
+            <div class="diagram-frame rounded-lg p-4"><p class="diagram-title mb-4 font-mono text-[10px] font-semibold uppercase">After / deletion or earned depth</p><div class="flex h-[230px] items-center justify-center font-mono text-[10px]"><div class="diagram-box deep w-full rounded-lg p-5 text-center shadow-lg"><div class="text-xs font-semibold uppercase tracking-wider">Hero module</div><div class="seam my-4"></div><p class="text-slate-300">meaningful status content<br>without scattered timing rules</p></div></div></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="top-recommendation" class="rounded-xl border-2 border-slate-800 bg-slate-900 p-7 text-white shadow-xl md:p-9">
+      <p class="mb-3 font-mono text-xs font-semibold uppercase tracking-[.16em] text-teal-300">TOP RECOMMENDATION</p>
+      <h2 class="text-3xl font-semibold tracking-tight">Deepen the archive curation projection first.</h2>
+      <p class="mt-4 max-w-3xl leading-7 text-slate-300">It is the clearest current source of shallow implementation: repeated category knowledge, silent fallbacks, and build-time work spread through the page. One deep module would improve locality, provide leverage to the card and filter modules, and create a stable interface for tests.</p>
+      <a class="mt-6 inline-block rounded border border-teal-300 px-4 py-3 font-mono text-sm text-teal-200 hover:bg-teal-950" href="#archive-projection">Jump to candidate 01</a>
+    </section>
+  </main>
+</body>
+</html>

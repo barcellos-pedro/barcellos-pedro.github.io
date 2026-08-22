@@ -1,0 +1,19 @@
+label: pedro@pedroreis.dev / engagement.log
+status: available for new engagements
+requests:
+  - method: POST
+    path: /transfers/created
+    code: 201
+    project: transfer-web-api
+  - method: GET
+    path: /condohub/announcements
+    code: 200
+    project: condohub
+  - method: POST
+    path: /invoices/categorize
+    code: 200
+    project: finance-dashboard
+  - method: GET
+    path: /health
+    code: 200
+    note: uptime 4yr+

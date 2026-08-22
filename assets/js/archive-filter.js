@@ -1,13 +1,9 @@
-const terminal = document.querySelector("#terminal-body");
-const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+export function matchesProject(project, query, selectedTopic) {
+  const matchesSearch = !query || project.name.includes(query) || project.description.includes(query) || project.topics.includes(query);
+  const topics = project.topics.split(",");
+  const matchesTopic = selectedTopic === "all" || topics.includes(selectedTopic);
 
-if (terminal && !reduceMotion) {
-  const lines = [...terminal.querySelectorAll(".terminal-line")];
-  terminal.classList.add("terminal-ready");
-
-  lines.forEach((line, index) => {
-    window.setTimeout(() => line.classList.add("is-visible"), 260 + index * (index < 2 ? 260 : 160));
-  });
+  return matchesSearch && matchesTopic;
 }
 
 const filter = document.querySelector("[data-project-filter]");
@@ -26,10 +22,12 @@ if (filter) {
     let visible = 0;
 
     cards.forEach((card) => {
-      const matchesSearch = !query || card.dataset.projectName.includes(query) || card.dataset.projectDescription.toLowerCase().includes(query) || card.dataset.projectTopics.includes(query);
-      const topics = card.dataset.projectTopics.split(",");
-      const matchesTopic = selectedTopic === "all" || topics.includes(selectedTopic);
-      const isVisible = matchesSearch && matchesTopic;
+      const project = {
+        name: card.dataset.projectName,
+        description: card.dataset.projectDescription.toLowerCase(),
+        topics: card.dataset.projectTopics,
+      };
+      const isVisible = matchesProject(project, query, selectedTopic);
 
       card.classList.toggle("is-hidden", !isVisible);
       card.querySelectorAll(".project-tags span").forEach((tag) => {

@@ -1,5 +1,5 @@
-# Initial curation for the archive. Update a repository's category as its role
-# in the portfolio changes.
+# Portfolio metadata for the archive. Fetched repository records stay in
+# repos.json; update a category here as its role in the portfolio changes.
 - repo: barcellos-pedro.github.io
   category: personal
 - repo: condohub

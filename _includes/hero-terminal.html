@@ -3,16 +3,15 @@
     <span class="terminal-dot" aria-hidden="true"></span>
     <span class="terminal-dot" aria-hidden="true"></span>
     <span class="terminal-dot" aria-hidden="true"></span>
-    <span class="terminal-label">pedro@pedroreis.dev / engagement.log</span>
+    <span class="terminal-label">{{ site.data.terminal.label }}</span>
   </div>
   <div class="terminal-body" id="terminal-body">
     <div class="terminal-line">$ pedro --status</div>
-    <div class="terminal-line terminal-status">&gt; available for new engagements</div>
+    <div class="terminal-line terminal-status">&gt; {{ site.data.terminal.status }}</div>
     <div class="terminal-line terminal-spacer" aria-hidden="true"></div>
-    <div class="terminal-line">POST /transfers/created <span class="terminal-ok">201</span> <span class="terminal-project">transfer-web-api</span></div>
-    <div class="terminal-line">GET  /condohub/announcements <span class="terminal-ok">200</span> <span class="terminal-project">condohub</span></div>
-    <div class="terminal-line">POST /invoices/categorize <span class="terminal-ok">200</span> <span class="terminal-project">finance-dashboard</span></div>
-    <div class="terminal-line">GET  /health <span class="terminal-ok">200</span> <span class="terminal-dim">uptime 4yr+</span></div>
+    {% for request in site.data.terminal.requests %}
+    <div class="terminal-line"><span class="terminal-method">{{ request.method }}</span> <span class="terminal-path">{{ request.path }}</span> <span class="terminal-ok">{{ request.code }}</span>{% if request.project %} <span class="terminal-project">{{ request.project }}</span>{% elsif request.note %} <span class="terminal-dim">{{ request.note }}</span>{% endif %}</div>
+    {% endfor %}
     <span class="terminal-cursor" aria-hidden="true"></span>
   </div>
 </div>

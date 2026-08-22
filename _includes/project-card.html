@@ -1,0 +1,30 @@
+{% assign description = include.description | default: "" %}
+{% assign topics = include.topics | default: empty %}
+<article class="project-card" data-project-name="{{ include.name | downcase | escape }}" data-project-description="{{ description | escape }}" data-project-topics="{{ topics | join: ',' | downcase | escape }}" data-project-category="{{ include.category | default: '' }}">
+  <div class="project-card-top">
+    <h3><a href="{{ include.code_url }}" target="_blank" rel="noopener">{{ include.name | escape }}</a></h3>
+    {% if include.status %}<span class="project-status">{{ include.status | escape }}</span>{% endif %}
+  </div>
+  {% if description != "" %}
+  <p class="description">{{ description | escape }}</p>
+  {% endif %}
+  {% if include.tags and include.tags.size > 0 %}
+  <div class="project-tags">
+    {% for tag in include.tags limit:6 %}
+    <span>{{ tag | escape }}</span>
+    {% endfor %}
+  </div>
+  {% endif %}
+  <div class="project-actions">
+    <a href="{{ include.code_url }}" target="_blank" rel="noopener" title="Source code">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+      Code
+    </a>
+    {% if include.live_url and include.live_url != "" %}
+    <a href="{{ include.live_url }}" target="_blank" rel="noopener" title="Live demo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      Live Demo
+    </a>
+    {% endif %}
+  </div>
+</article>

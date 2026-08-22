@@ -17,12 +17,17 @@ on GitHub Pages.
 │   ├── featured_projects.yml  # Homepage project selection
 │   ├── links.yml              # Social links
 │   ├── navigation.yml         # Homepage section navigation
+│   ├── project_metadata.yml  # Portfolio archive metadata
 │   ├── repos.json             # GitHub project data
-│   └── services.yml           # Consulting services
+│   ├── services.yml           # Consulting services
+│   └── terminal.yml           # Hero terminal content
 ├── _includes/                 # Reusable Jekyll components
+├── _includes/project-archive.html # Archive projection and rendering
 ├── _layouts/default.html      # Shared page shell and contact footer
 ├── assets/css/style.css       # Theme and component styles
-├── assets/js/script.js        # Terminal reveal and archive filters
+├── assets/js/archive-filter.js # Archive filtering behavior
+├── assets/js/terminal-reveal.js # Terminal reveal behavior
+├── docs/architecture-review.html # Architecture review report
 ├── index.html                 # Homepage
 └── projects.html              # Full project archive
 ```
@@ -49,7 +54,8 @@ Generated files are written to `_site/`.
 Projects are sourced from [`_data/repos.json`](_data/repos.json), which is
 updated by the GitHub API workflow. Curate the homepage in
 [`_data/featured_projects.yml`](_data/featured_projects.yml), and update
-services in [`_data/services.yml`](_data/services.yml).
+services in [`_data/services.yml`](_data/services.yml). Categorize archive
+projects in [`_data/project_metadata.yml`](_data/project_metadata.yml).
 
 Edit [`_data/navigation.yml`](_data/navigation.yml) to change the homepage
 section links. Edit [`_data/links.yml`](_data/links.yml) to update contact and

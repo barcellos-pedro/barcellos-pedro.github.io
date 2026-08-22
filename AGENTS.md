@@ -20,8 +20,9 @@ No tests, linting, or typechecking.
 - **Navigation**: Top nav bar (`_includes/navigation.html`) is rendered in `_layouts/default.html` via `{% include navigation.html %}`. Menu items come from `_data/navigation.yml` and point to homepage sections.
 - **Social links** in `_data/links.yml` — rendered in the contact footer with inline SVG icons via `{% include links.html %}`.
 - **Projects**: `index.html` shows curated projects from `_data/featured_projects.yml`; `/projects.html` shows and filters the full list from `_data/repos.json`.
+- **Archive projection**: `_includes/project-archive.html` joins repository data with `_data/project_metadata.yml` before rendering the two project groups.
 - **Services**: Homepage service cards are managed in `_data/services.yml`.
-- **`assets/js/script.js`** powers the terminal reveal and project archive filters.
+- **`assets/js/terminal-reveal.js`** powers the terminal reveal; `assets/js/archive-filter.js` owns project archive filtering.
 - **`_site/`** is generated and gitignored — never edit directly.
 
 ## repos.json Automation
@@ -35,6 +36,7 @@ No tests, linting, or typechecking.
 ## Content
 
 - **Featured projects**: edit `_data/featured_projects.yml`; repository URLs and archive data come from `_data/repos.json`.
+- **Archive metadata**: edit `_data/project_metadata.yml` to change project categories.
 - **Projects**: edit `_data/repos.json` or re-run the fetch script.
 - **Navigation**: edit `_data/navigation.yml` (then wire it into a layout if you want it visible).
 
