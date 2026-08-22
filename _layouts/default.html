@@ -14,12 +14,19 @@
 <body>
     {% include navigation.html %}
     <main>
-        <div class="container">
-            {{ content }}
-        </div>
+        {{ content }}
     </main>
-    <footer class="site-footer">
-        &copy; 2026 Pedro Barcellos. Built with <span>Jekyll</span>
+    <footer class="contact-footer">
+        <div class="wrap">
+            <div class="eyebrow"><span class="eyebrow-dot"></span>GET IN TOUCH</div>
+            <h2>Have a project that needs a steady backend?</h2>
+            <p class="contact-lede">I take on a small number of consulting and contract engagements alongside my role at Itaú. If it is a good fit, I will tell you honestly.</p>
+            <a class="contact-email" href="mailto:pedrobarcellosreis@gmail.com">pedrobarcellosreis@gmail.com</a>
+            <div class="contact-foot">
+                <div class="contact-links">{% include links.html group="primary" %}</div>
+                <div class="contact-fine">São Paulo, BR (GMT-3) · <span class="secondary-links">{% include links.html group="secondary" %}</span></div>
+            </div>
+        </div>
     </footer>
 </body>
 

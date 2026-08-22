@@ -2,37 +2,90 @@
 layout: default
 title: Home
 ---
-<section class="hero">
-    <img src="/assets/images/profile.jpeg" alt="Pedro Barcellos" class="hero-avatar">
-    <div class="hero-content">
-        <h1>Pedro Barcellos</h1>
-        <p class="title">Software Engineer</p>
-        <p class="bio">
-            Dedicated to crafting robust web solutions and diving deep into software craftsmanship.
-            Beyond the code, I’m an avid music lover and curious mind exploring human psychology and technology.
-            Always open to connecting and sharing ideas!
-        </p>
-        <div class="social-links">
-            {% include links.html %}
-        </div>
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow"><span class="eyebrow-dot"></span>SOFTWARE ENGINEER · WEB AND BACKEND · SÃO PAULO, BR</div>
+    <h1>I build web systems that keep your data straight.</h1>
+    <p class="hero-lede">Backend-leaning engineer specializing in transactional applications, internal tools, and APIs for teams that cannot afford to lose a record. Currently at Itaú and open for select consulting and contract work.</p>
+    <div class="hero-ctas">
+      <a class="button button-primary" href="mailto:pedrobarcellosreis@gmail.com">Start a project <span aria-hidden="true">&#8594;</span></a>
+      <a class="button button-secondary" href="#work">See featured work</a>
     </div>
+    {% include hero-terminal.html %}
+  </div>
+</header>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What I build</h2>
+      <span class="section-label">/services</span>
+    </div>
+    <div class="services-grid">
+      {% for service in site.data.services %}
+      <article class="service-card">
+        <span class="service-label">{{ service.label }}</span>
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.description }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
 </section>
 
-{% assign repos = site.data.repos %}
-<section>
-    <div class="section-header">
-        <h2>Featured Projects</h2>
-        {% if repos.size > 0 %}
-        <a href="/projects.html">View all &rarr;</a>
+<section id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Featured work</h2>
+      <span class="section-label">/projects · {{ site.data.featured_projects.size }} selected</span>
+    </div>
+    {% assign repos = site.data.repos %}
+    <div class="project-grid featured-grid">
+      {% for project in site.data.featured_projects %}
+        {% assign repo = repos | where: "name", project.repo | first %}
+        {% if repo %}
+          {% include repo.html repo=repo featured_status=project.status featured_description=project.description featured_tags=project.tags %}
         {% endif %}
+      {% endfor %}
     </div>
-    {% if repos.size > 0 %}
-    <div class="project-grid">
-        {% for repo in repos limit:6 %}
-            {% include repo.html repo=repo %}
-        {% endfor %}
+    <p class="work-more"><a href="/projects.html">Browse all {{ repos.size }} projects <span aria-hidden="true">&#8594;</span></a></p>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>How I work</h2>
+      <span class="section-label">/process</span>
     </div>
-    {% else %}
-    <p style="color: var(--text-muted); text-align: center; padding: 3rem 0;">No projects yet.</p>
-    {% endif %}
+    <div class="process-grid">
+      <article class="process-step">
+        <span class="process-number">01</span>
+        <h3>Discovery</h3>
+        <p>A short call to understand the problem, the constraints, and what done actually looks like.</p>
+      </article>
+      <article class="process-step">
+        <span class="process-number">02</span>
+        <h3>Build</h3>
+        <p>Regular check-ins and working software early. No disappearing for months into a black box.</p>
+      </article>
+      <article class="process-step">
+        <span class="process-number">03</span>
+        <h3>Ship and support</h3>
+        <p>Deploy, hand off clear documentation, and stay reachable after launch, not gone the day it ships.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>About</h2>
+      <span class="section-label">/about</span>
+    </div>
+    <div class="about-copy">
+      <p>I am a software engineer at Itaú focused on web and backend development, based in São Paulo. Outside of client work I am usually deep in a personal project, training for my next 5K or 10K, or a few episodes into a podcast about psychology or philosophy. I like systems that hold up under pressure, in code and otherwise.</p>
+    </div>
+  </div>
 </section>

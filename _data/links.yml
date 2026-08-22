@@ -1,18 +1,24 @@
 - name: GitHub
   url: https://github.com/barcellos-pedro
   icon: github
+  priority: primary
 - name: LinkedIn
   url: https://linkedin.com/in/pedro-barcellos
   icon: linkedin
+  priority: primary
 - name: Credly
   url: https://www.credly.com/users/barcellos-pedro
   icon: credly
+  priority: primary
 - name: Twitter
   url: https://x.com/pedroreis_io
   icon: twitter
+  priority: secondary
 - name: Strava
   url: https://www.strava.com/athletes/barcellos-pedro
   icon: strava
+  priority: secondary
 - name: Email
   url: mailto:pedrobarcellosreis@gmail.com
   icon: email
+  priority: primary

@@ -1,0 +1,33 @@
+- repo: transfer-web-api
+  status: production-grade
+  description: "High-concurrency financial transfers API with pessimistic locking to prevent lost updates and an audit trail designed for accountable systems."
+  tags:
+    - Java
+    - Spring Boot
+    - PostgreSQL
+    - REST API
+
+- repo: condohub
+  status: shipped end to end
+  description: "Community web app for condominium residents to share updates, discuss local topics, and recommend services in one place."
+  tags:
+    - Ruby on Rails
+    - MVC
+    - Web app
+
+- repo: finance-dashboard
+  status: useful by default
+  description: "Interactive finance dashboard that turns bank statement uploads into categorized transactions and readable spending patterns."
+  tags:
+    - Python
+    - Streamlit
+    - Pandas
+    - Data tools
+
+- repo: bookmarks-visualizer
+  status: side project
+  description: "Fast static tool for organizing and searching browser-exported bookmarks, built around a small problem with a very practical answer."
+  tags:
+    - JavaScript
+    - Static app
+    - Search

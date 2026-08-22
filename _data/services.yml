@@ -1,0 +1,15 @@
+- label: BACKEND
+  title: Transactional systems
+  description: "APIs and services where correctness matters more than speed: transfers, payments, audit trails, and the edge cases around them."
+
+- label: FULL-STACK
+  title: Web applications
+  description: "End-to-end applications for real users, from internal tools and admin panels to community platforms that need to stay maintainable."
+
+- label: DATA
+  title: Dashboards and data tools
+  description: "Turn spreadsheets and raw exports into focused tools a team can use every day: upload, categorize, visualize, repeat."
+
+- label: ADVISORY
+  title: Technical consulting
+  description: "Architecture reviews, code audits, and a second pair of experienced eyes for teams that are mid-project or getting unstuck."
