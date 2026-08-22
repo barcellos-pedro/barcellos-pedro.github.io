@@ -1,10 +1,10 @@
 - label: BACKEND
   title: Transactional systems
-  description: "APIs and services where correctness matters more than speed: transfers, payments, audit trails, and the edge cases around them."
+  description: "APIs and services where being right matters more than being fast: transfers, payments, audit trails, and the edge cases nobody thinks about until they bite."
 
 - label: FULL-STACK
   title: Web applications
-  description: "End-to-end applications for real users, from internal tools and admin panels to community platforms that need to stay maintainable."
+  description: "End-to-end web apps for real users — internal tools, admin panels, community platforms — built to stay maintainable long after launch."
 
 - label: DATA
   title: Dashboards and data tools

@@ -314,6 +314,12 @@ section { padding: 72px 0; }
   white-space: nowrap;
 }
 
+.section-intro {
+  margin-bottom: 38px;
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
 /* Services */
 .services-grid {
   display: grid;
