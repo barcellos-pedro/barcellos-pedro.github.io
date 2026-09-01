@@ -1,0 +1,104 @@
+meta:
+  name: Pedro Barcellos dos Reis
+  role: Software Engineer
+  location: "São Paulo, BR"
+  email: pedrobarcellosreis@gmail.com
+  phone: "+55 (11) 97780-1997"
+  github: https://github.com/barcellos-pedro
+  linkedin: https://linkedin.com/in/pedro-barcellos
+
+summary:
+  headline: "Software Engineer specializing in high-throughput API architecture, distributed systems, and core banking platforms"
+  bio: >
+    Software Engineer with strong experience in high-throughput architectures at Itaú Unibanco.
+    Specialized in building scalable APIs with Java, Spring Boot, and Kafka, combining resilience
+    and observability with a solid foundation in modern front-end engineering.
+
+philosophy:
+  title: "Engineering driven by resilience and clarity"
+  paragraphs:
+    - >
+      I believe software engineering excellence stems from architectural simplicity and operational predictability.
+      In enterprise environments like Itaú Unibanco Corporate Banking, every line of code must be designed to withstand
+      high transaction volumes while maintaining ultra-low latency.
+    - >
+      My background smoothly spans distributed cloud systems (Java, Kafka, AWS, Kubernetes) and intuitive, performant
+      web interfaces (TypeScript, Angular, Node.js). This end-to-end perspective helps anticipate integration bottlenecks,
+      build developer-friendly tooling, and ensure deep production observability.
+
+experience:
+  - company: "Itaú Unibanco"
+    role: "Back-End Software Engineer"
+    period: "Sep 2023 — Present"
+    description: "Development and engineering of scalable high-performance APIs and core microservices driving the mobile and web ecosystems for the Corporate Banking (PJ) segment."
+    bullets:
+      - "Full lifecycle responsibility: architectural design, resilient code execution, infrastructure provisioning, and active monitoring."
+      - "Implementation of event-driven architectures utilizing Apache Kafka for high-throughput asynchronous messaging."
+      - "Construction of robust CI/CD pipelines via GitHub Actions and AWS, accelerating continuous delivery with strict security practices."
+      - "Deployment and orchestration of containerized microservices on Kubernetes clusters managed through AWS EKS."
+      - "Advanced monitoring and observability using Prometheus, AppDynamics, Splunk, and Grafana for continuous anomaly detection."
+    tags: ["Java", "Spring Boot", "Apache Kafka", "Redis", "AWS", "Kubernetes (EKS)", "Docker"]
+
+  - company: "Itaú Unibanco"
+    role: "Front-End Software Engineer"
+    period: "Sep 2021 — Sep 2023"
+    description: "Architected and maintained internal software tools to streamline workflow automation and developer productivity across bank teams."
+    bullets:
+      - "Developed custom integrations and plugins to unify communication across internal systems and platforms."
+      - "Automated serverless workflows on AWS utilizing Node.js, AWS Lambda, and TypeScript."
+      - "Authored thorough technical documentation for tooling standardization and seamless developer onboarding."
+      - "Ensured software reliability through automated unit and integration testing with Jest."
+    tags: ["TypeScript", "Node.js", "Angular", "AWS Lambda", "Jest", "CMS"]
+
+  - company: "Betalabs"
+    role: "Front-End Developer"
+    period: "Oct 2020 — Aug 2021"
+    description: "Focused on building reactive user interfaces for SaaS subscription models and e-commerce web applications."
+    bullets:
+      - "Technical prototyping of new product features and UI layouts using Figma."
+      - "Built scalable front-end components and state management pipelines using Angular and NgRx."
+      - "Refactored legacy code, resolved interface bugs, and continuously enhanced UI/UX with SASS and Bootstrap."
+    tags: ["JavaScript", "TypeScript", "Angular", "NgRx", "SASS", "Figma"]
+
+architectures:
+  - title: "High-Throughput Corporate Banking API Platform"
+    category: "API PLATFORM & STREAMING"
+    period: "2023 — Present"
+    description: "Decoupled Kubernetes microservices architecture for enterprise banking. Features streaming pipelines via Apache Kafka and high-performance Redis caching."
+    tags: ["Java", "Spring Boot", "Kafka", "AWS EKS", "Grafana"]
+  - title: "Internal Tooling & Plugin Ecosystem"
+    category: "DEVELOPER TOOLING & AUTOMATION"
+    period: "2021 — 2023"
+    description: "Serverless solution built on AWS Lambda and Node.js for automating operational workflows, eliminating team silos, and enhancing delivery cadence."
+    tags: ["TypeScript", "Node.js", "AWS Lambda", "Jest", "Angular"]
+
+skills:
+  - category: "Back-End & Systems"
+    items:
+      - "Java & Spring Boot"
+      - "Apache Kafka & Event Streaming"
+      - "Redis (Caching & State)"
+      - "RESTful API Design & Distributed Architecture"
+      - "Node.js & Express"
+  - category: "Cloud, DevOps & Observability"
+    items:
+      - "AWS (EKS, Lambda, EC2, S3)"
+      - "Kubernetes & Docker"
+      - "CI/CD (GitHub Actions, AWS CodePipeline)"
+      - "Prometheus & Grafana"
+      - "Splunk & AppDynamics"
+  - category: "Front-End & Interfaces"
+    items:
+      - "TypeScript & JavaScript (ES6+)"
+      - "Angular & NgRx"
+      - "Jest (Automated Testing)"
+      - "SASS & Responsive UI Design"
+      - "Figma (UI/UX Prototyping)"
+
+education:
+  - institution: "Faculdade IMPACTA"
+    degree: "B.S. in Computer Engineering"
+    period: "2020 — 2024"
+  - institution: "ETEC — Escola Técnica Estadual"
+    degree: "Technical Diploma in Information Technology"
+    period: "2016 — 2017"

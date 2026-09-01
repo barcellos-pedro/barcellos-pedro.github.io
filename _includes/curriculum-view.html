@@ -1,0 +1,163 @@
+{% assign cv = site.data.curriculum %}
+
+<article class="curriculum-page">
+  <!-- Top Header / Hero -->
+  <header class="curriculum-header">
+    <div class="wrap">
+      <div class="eyebrow"><span class="eyebrow-dot"></span>CURRICULUM VITAE · SÃO PAULO, BR</div>
+      <h1 class="curriculum-name">{{ cv.meta.name }}</h1>
+      <p class="curriculum-role">{{ cv.meta.role }} — Back-End &amp; Distributed Systems</p>
+      
+      <div class="curriculum-lead-grid">
+        <p class="curriculum-bio">{{ cv.summary.bio }}</p>
+        
+        <div class="curriculum-meta-panel">
+          <div class="meta-item">
+            <span class="meta-label">DIRECT CONTACT</span>
+            <a class="meta-value link-underline" href="mailto:{{ cv.meta.email }}">{{ cv.meta.email }}</a>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">LOCATION</span>
+            <span class="meta-value">{{ cv.meta.location }}</span>
+          </div>
+          <div class="curriculum-actions no-print">
+            <button type="button" class="button button-primary print-trigger" onclick="window.print()">
+              <svg class="icon-inline" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+              Print / Save PDF
+            </button>
+            <a class="button button-secondary" href="mailto:{{ cv.meta.email }}">
+              Contact Me
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Section 1: Philosophy -->
+  <section class="curriculum-section" id="philosophy">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>{{ cv.philosophy.title }}</h2>
+        <span class="section-label">01 / TECHNICAL PHILOSOPHY</span>
+      </div>
+      <div class="philosophy-content">
+        {% for p in cv.philosophy.paragraphs %}
+        <p>{{ p }}</p>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Experience Timeline -->
+  <section class="curriculum-section" id="experience">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Professional Experience</h2>
+        <span class="section-label">02 / CAREER TIMELINE</span>
+      </div>
+      <div class="timeline">
+        {% for item in cv.experience %}
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-header">
+            <div class="timeline-title-group">
+              <h3 class="timeline-company">{{ item.company }}</h3>
+              <div class="timeline-role">{{ item.role }}</div>
+            </div>
+            <div class="timeline-period">{{ item.period }}</div>
+          </div>
+          <p class="timeline-description">{{ item.description }}</p>
+          {% if item.bullets %}
+          <ul class="timeline-bullets">
+            {% for bullet in item.bullets %}
+            <li>{{ bullet }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+          {% if item.tags %}
+          <div class="timeline-tags">
+            {% for tag in item.tags %}
+            <span class="tag-pill">{{ tag }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Featured Architectures -->
+  <section class="curriculum-section" id="architectures">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Featured Architectures &amp; Projects</h2>
+        <span class="section-label">03 / CASE STUDIES</span>
+      </div>
+      <div class="architectures-grid">
+        {% for arch in cv.architectures %}
+        <article class="architecture-card">
+          <div class="arch-card-top">
+            <span class="arch-category">{{ arch.category }}</span>
+            <span class="arch-period">{{ arch.period }}</span>
+          </div>
+          <h3>{{ arch.title }}</h3>
+          <p>{{ arch.description }}</p>
+          <div class="arch-tags">
+            {% for tag in arch.tags %}
+            <span class="arch-tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Skills Matrix -->
+  <section class="curriculum-section" id="skills">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Competencies &amp; Technical Matrix</h2>
+        <span class="section-label">04 / SKILLS</span>
+      </div>
+      <div class="skills-grid">
+        {% for group in cv.skills %}
+        <div class="skill-group">
+          <h3 class="skill-category">{{ group.category }}</h3>
+          <ul class="skill-list">
+            {% for item in group.items %}
+            <li>
+              <span class="skill-bullet"></span>
+              <span>{{ item }}</span>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Education -->
+  <section class="curriculum-section" id="education">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Education</h2>
+        <span class="section-label">05 / ACADEMIC BACKGROUND</span>
+      </div>
+      <div class="education-list">
+        {% for edu in cv.education %}
+        <div class="education-item">
+          <div class="education-details">
+            <h3>{{ edu.institution }}</h3>
+            <p class="education-degree">{{ edu.degree }}</p>
+          </div>
+          <div class="education-period">{{ edu.period }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</article>

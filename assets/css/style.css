@@ -686,3 +686,574 @@ section { padding: 72px 0; }
 /* The terminal reveals one request at a time when motion is allowed. */
 .terminal-body.terminal-ready .terminal-line { opacity: 0; transition: opacity 0.2s ease; }
 .terminal-body.terminal-ready .terminal-line.is-visible { opacity: 1; }
+
+/* ==========================================================================
+   Curriculum / Resume Page
+   ========================================================================== */
+
+.curriculum-page {
+  padding-bottom: 60px;
+}
+
+.curriculum-header {
+  padding: 60px 0 40px;
+}
+
+.curriculum-name {
+  margin-bottom: 6px;
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
+  font-family: var(--display);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.curriculum-role {
+  margin-bottom: 24px;
+  color: var(--accent);
+  font: 500 15px var(--mono);
+}
+
+.curriculum-lead-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: start;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.curriculum-bio {
+  max-width: 64ch;
+  margin-bottom: 0;
+  color: var(--ink-soft);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.curriculum-meta-panel {
+  display: flex;
+  min-width: 260px;
+  flex-direction: column;
+  gap: 16px;
+  padding-left: 32px;
+  border-left: 1px solid var(--line);
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.meta-label {
+  color: var(--ink-faint);
+  font: 11px var(--mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.meta-value {
+  color: var(--ink);
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.curriculum-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.icon-inline {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.curriculum-section {
+  padding: 48px 0;
+  border-top: 1px solid var(--line);
+}
+
+.philosophy-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.philosophy-content p {
+  margin-bottom: 0;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+  margin-left: 8px;
+  padding-left: 28px;
+  border-left: 2px solid var(--line);
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-marker {
+  position: absolute;
+  top: 6px;
+  left: -35px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--bg);
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.timeline-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.timeline-title-group {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.timeline-company {
+  margin-bottom: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.timeline-role {
+  color: var(--accent);
+  font: 500 13px var(--mono);
+}
+
+.timeline-period {
+  color: var(--ink-faint);
+  font: 12px var(--mono);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.timeline-description {
+  margin-bottom: 12px;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.timeline-bullets {
+  margin: 0 0 16px;
+  padding-left: 18px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.timeline-bullets li {
+  margin-bottom: 6px;
+}
+
+.timeline-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag-pill {
+  padding: 3px 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+  color: var(--ink-soft);
+  font: 11px var(--mono);
+}
+
+/* Architectures */
+.architectures-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.architecture-card {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+}
+
+.arch-card-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.arch-category {
+  color: var(--accent);
+  font: 600 11px var(--mono);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.arch-period {
+  color: var(--ink-faint);
+  font: 11px var(--mono);
+}
+
+.architecture-card h3 {
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.architecture-card p {
+  flex-grow: 1;
+  margin-bottom: 16px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.arch-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--ink-soft);
+  font: 12px var(--mono);
+}
+
+.arch-tag::before {
+  content: "• ";
+  color: var(--accent);
+}
+
+/* Skills Matrix */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.skill-group {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+}
+
+.skill-category {
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+  color: var(--accent);
+  font: 600 12px var(--mono);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.skill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skill-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.skill-bullet {
+  width: 5px;
+  height: 5px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* Education */
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.education-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.education-item:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.education-details h3 {
+  margin-bottom: 3px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.education-degree {
+  margin-bottom: 0;
+  color: var(--accent);
+  font: 13px var(--mono);
+}
+
+.education-period {
+  color: var(--ink-faint);
+  font: 12px var(--mono);
+  letter-spacing: 0.03em;
+}
+
+/* Responsive Overrides */
+@media (max-width: 720px) {
+  .curriculum-header { padding: 40px 0 30px; }
+  .curriculum-lead-grid { grid-template-columns: 1fr; gap: 24px; }
+  .curriculum-meta-panel {
+    min-width: 0;
+    padding-top: 20px;
+    padding-left: 0;
+    border-top: 1px solid var(--line);
+    border-left: none;
+  }
+  .philosophy-content { grid-template-columns: 1fr; gap: 16px; }
+  .architectures-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .education-item { flex-direction: column; gap: 4px; }
+}
+
+/* ==========================================================================
+   Print / PDF Styles
+   ========================================================================== */
+
+@media print {
+  @page {
+    margin: 1.2cm;
+    size: auto;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #111111 !important;
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+  }
+
+  .site-nav,
+  .contact-footer,
+  .no-print,
+  .curriculum-actions {
+    display: none !important;
+  }
+
+  .wrap {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .curriculum-header {
+    padding: 0 0 20px !important;
+  }
+
+  .curriculum-name {
+    font-size: 26px !important;
+    margin-bottom: 4px !important;
+    color: #000000 !important;
+  }
+
+  .curriculum-role {
+    font-size: 12px !important;
+    margin-bottom: 12px !important;
+    color: #333333 !important;
+  }
+
+  .curriculum-lead-grid {
+    grid-template-columns: 1fr auto !important;
+    gap: 20px !important;
+    padding-top: 12px !important;
+    border-top: 1px solid #ccc !important;
+  }
+
+  .curriculum-bio {
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+    color: #222222 !important;
+  }
+
+  .curriculum-meta-panel {
+    padding-left: 20px !important;
+    border-left: 1px solid #ccc !important;
+    gap: 8px !important;
+    min-width: 200px !important;
+  }
+
+  .curriculum-section {
+    padding: 20px 0 !important;
+    border-top: 1px solid #ddd !important;
+  }
+
+  .section-head {
+    margin-bottom: 14px !important;
+  }
+
+  .section-head h2 {
+    font-size: 16px !important;
+  }
+
+  .section-label {
+    font-size: 10px !important;
+  }
+
+  .philosophy-content {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px !important;
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+  }
+
+  .timeline {
+    gap: 20px !important;
+    padding-left: 16px !important;
+    border-left: 1.5px solid #999 !important;
+    margin-left: 4px !important;
+  }
+
+  .timeline-marker {
+    left: -21px !important;
+    top: 4px !important;
+    width: 8px !important;
+    height: 8px !important;
+    background: #333 !important;
+    border: 1px solid #fff !important;
+  }
+
+  .timeline-item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .timeline-company {
+    font-size: 15px !important;
+  }
+
+  .timeline-role {
+    font-size: 12px !important;
+    color: #222 !important;
+  }
+
+  .timeline-period {
+    font-size: 10px !important;
+  }
+
+  .timeline-description {
+    font-size: 12px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .timeline-bullets {
+    margin: 0 0 8px !important;
+    padding-left: 14px !important;
+    font-size: 11.5px !important;
+    line-height: 1.4 !important;
+  }
+
+  .timeline-bullets li {
+    margin-bottom: 3px !important;
+  }
+
+  .tag-pill,
+  .arch-tag,
+  .skill-group,
+  .architecture-card {
+    background: transparent !important;
+    border-color: #ddd !important;
+    color: #222 !important;
+  }
+
+  .architecture-card {
+    padding: 14px !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .architecture-card h3 {
+    font-size: 14px !important;
+  }
+
+  .architecture-card p {
+    font-size: 11.5px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .skill-group {
+    padding: 12px !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .skill-category {
+    font-size: 10px !important;
+    padding-bottom: 4px !important;
+    margin-bottom: 8px !important;
+    color: #111 !important;
+  }
+
+  .skill-list li {
+    font-size: 11px !important;
+  }
+
+  .skill-bullet {
+    background: #333 !important;
+  }
+
+  .education-item {
+    padding-bottom: 8px !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .education-details h3 {
+    font-size: 14px !important;
+  }
+
+  .education-degree {
+    font-size: 11.5px !important;
+    color: #333 !important;
+  }
+}
