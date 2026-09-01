@@ -9,7 +9,23 @@ title: Home
     <p class="hero-lede">I'm a backend engineer in São Paulo, currently at Itaú. I build transactional apps, internal tools, and APIs for teams that can't afford to lose a single record — and I take on a few consulting and contract projects alongside my day job.</p>
     <div class="hero-ctas">
       <a class="button button-primary" href="mailto:pedrobarcellosreis@gmail.com">Start a project <span aria-hidden="true">&#8594;</span></a>
-      <a class="button button-secondary" href="#work">See featured work</a>
+      <a class="button-link" href="#work">See featured work <span aria-hidden="true">&#8595;</span></a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-value">{{ site.data.repos.size }}+</span>
+        <span class="stat-label">Projects Shipped</span>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item">
+        <span class="stat-value">Production</span>
+        <span class="stat-label">Financial & Core APIs</span>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item">
+        <span class="stat-value">Consulting</span>
+        <span class="stat-label">Available for select work</span>
+      </div>
     </div>
     {% include hero-terminal.html %}
   </div>
@@ -49,7 +65,14 @@ title: Home
         {% endif %}
       {% endfor %}
     </div>
-    <p class="work-more"><a href="/projects.html">Browse all {{ repos.size }} projects <span aria-hidden="true">&#8594;</span></a></p>
+    <div class="archive-callout">
+      <div class="archive-callout-text">
+        <span class="archive-callout-tag">Public Repository Archive</span>
+        <h3>Explore all {{ repos.size }} repositories</h3>
+        <p>Search and filter production APIs, web applications, open source libraries, and technical experiments.</p>
+      </div>
+      <a class="button button-primary archive-btn" href="/projects.html">Browse full archive <span aria-hidden="true">&#8594;</span></a>
+    </div>
   </div>
 </section>
 
