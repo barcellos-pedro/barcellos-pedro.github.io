@@ -3,7 +3,7 @@
     <a class="nav-name" href="/">Pedro Barcellos</a>
     <div class="nav-links">
       {% for item in site.data.navigation %}
-      <a href="{{ item.link }}">{{ item.name }}</a>
+      <a class="{% if item.name == 'Curriculum' %}nav-resume{% endif %}" href="{{ item.link }}">{{ item.name }}</a>
       {% endfor %}
     </div>
     <a class="nav-cta" href="mailto:pedrobarcellosreis@gmail.com">Email me</a>
