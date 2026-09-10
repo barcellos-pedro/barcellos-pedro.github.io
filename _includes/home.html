@@ -1,0 +1,33 @@
+{% assign locale = page.locale | default: "pt-br" %}
+{% assign copy = site.data.translations[locale] %}
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow"><span class="eyebrow-dot"></span>{{ copy.home.eyebrow }}</div>
+    <h1>{{ copy.home.headline }}</h1>
+    <p class="hero-lede">{{ copy.home.lede }}</p>
+    <div class="hero-ctas">
+      <a class="button button-primary" href="mailto:pedrobarcellosreis@gmail.com">{{ copy.home.primary_cta }} <span aria-hidden="true">&#8594;</span></a>
+      <a class="button-link" href="#work">{{ copy.home.work_cta }} <span aria-hidden="true">&#8595;</span></a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><span class="stat-value">{{ site.data.repos.size }}+</span><span class="stat-label">{{ copy.home.stats.shipped }}</span></div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item"><span class="stat-value">{{ copy.home.stats.production }}</span><span class="stat-label">{{ copy.home.stats.financial }}</span></div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item"><span class="stat-value">{{ copy.home.stats.consulting_value }}</span><span class="stat-label">{{ copy.home.stats.consulting }}</span></div>
+    </div>
+    {% include hero-terminal.html %}
+  </div>
+</header>
+
+<section id="services"><div class="wrap"><div class="section-head"><h2>{{ copy.home.services_title }}</h2><span class="section-label">{{ copy.home.services_label }}</span></div><div class="services-grid">
+  {% for service in copy.services %}<article class="service-card"><span class="service-label">{{ service.label }}</span><h3>{{ service.title }}</h3><p>{{ service.description }}</p></article>{% endfor %}
+</div></div></section>
+
+<section id="work"><div class="wrap"><div class="section-head"><h2>{{ copy.home.work_title }}</h2><span class="section-label">{{ copy.home.work_label }} · {{ site.data.featured_projects.size }}</span></div><p class="section-intro">{{ copy.home.work_intro }}</p>{% assign repos = site.data.repos %}<div class="project-grid featured-grid">
+  {% for project in site.data.featured_projects %}{% assign repo = repos | where: "name", project.repo | first %}{% if repo %}{% assign featured = copy.featured[project.repo] %}{% include repo.html repo=repo featured_status=featured.status featured_description=featured.description featured_tags=project.tags %}{% endif %}{% endfor %}
+</div><div class="archive-callout"><div class="archive-callout-text"><span class="archive-callout-tag">{{ copy.home.archive_tag }}</span><h3>{{ copy.home.archive_title }} ({{ repos.size }})</h3><p>{{ copy.home.archive_description }}</p></div><a class="button button-primary archive-btn" href="{% if locale == 'en' %}/en/projects.html{% else %}/projects.html{% endif %}">{{ copy.home.archive_cta }} <span aria-hidden="true">&#8594;</span></a></div></div></section>
+
+<section id="process"><div class="wrap"><div class="section-head"><h2>{{ copy.home.process_title }}</h2><span class="section-label">{{ copy.home.process_label }}</span></div><div class="process-grid">{% for step in copy.home.process %}<article class="process-step"><span class="process-number">0{{ forloop.index }}</span><h3>{{ step.title }}</h3><p>{{ step.description }}</p></article>{% endfor %}</div></div></section>
+
+<section id="about"><div class="wrap"><div class="section-head"><h2>{{ copy.home.about_title }}</h2><span class="section-label">{{ copy.home.about_label }}</span></div><div class="about-copy"><p>{{ copy.home.about }}</p></div></div></section>

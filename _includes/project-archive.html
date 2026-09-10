@@ -1,4 +1,6 @@
 {% assign repos = site.data.repos %}
+{% assign locale = page.locale | default: "pt-br" %}
+{% assign copy = site.data.translations[locale] %}
 {% assign metadata = site.data.project_metadata %}
 {% assign production_names = metadata | where: "category", "production" | map: "repo" %}
 {% assign production_repos = repos | where_exp: "repo", "production_names contains repo.name" %}
@@ -15,54 +17,54 @@
 <section class="archive-page">
   <div class="wrap">
     <div class="page-intro">
-      <a class="back-link" href="/">&#8592; Back to home</a>
-      <div class="eyebrow"><span class="eyebrow-dot"></span>PUBLIC REPOSITORY ARCHIVE · {{ repos.size }} TOTAL</div>
-      <h1>Everything I have shipped or broken on purpose.</h1>
-      <p>Production-grade work sits alongside the personal projects and exercises that built the range behind it. Filter by the original repository topics below.</p>
+      <a class="back-link" href="{% if locale == 'en' %}/en/{% else %}/{% endif %}">&#8592; {{ copy.archive.back }}</a>
+      <div class="eyebrow"><span class="eyebrow-dot"></span>{{ copy.archive.eyebrow }} · {{ repos.size }}</div>
+      <h1>{{ copy.archive.title }}</h1>
+      <p>{{ copy.archive.description }}</p>
     </div>
 
     <div class="filter-bar" data-project-filter>
       <div class="filter-row">
-        <label class="search-label" for="project-search">Search projects</label>
-        <input id="project-search" class="project-search" type="search" placeholder="Search by name, description, or topic" autocomplete="off">
-        <div class="filter-list" aria-label="Filter by repository topic">
-          <button class="filter-button is-selected" type="button" data-topic="all" aria-pressed="true">All</button>
+        <label class="search-label" for="project-search">{{ copy.archive.search_label }}</label>
+        <input id="project-search" class="project-search" type="search" placeholder="{{ copy.archive.placeholder }}" autocomplete="off">
+        <div class="filter-list" aria-label="{{ copy.archive.topic_aria }}">
+          <button class="filter-button is-selected" type="button" data-topic="all" aria-pressed="true">{{ copy.archive.all }}</button>
           {% for topic in all_topics %}
           <button class="filter-button" type="button" data-topic="{{ topic | downcase }}" aria-pressed="false">{{ topic }}</button>
           {% endfor %}
         </div>
-        <p class="filter-count" aria-live="polite">Showing {{ repos.size }} projects</p>
+        <p class="filter-count" aria-live="polite">{{ repos.size }} {{ copy.archive.showing_many }}</p>
       </div>
     </div>
 
     <section class="project-group" data-project-group="production">
       <div class="group-head">
-        <h2>Production-grade</h2>
-        <span class="group-count">{{ production_count }} projects</span>
+        <h2>{{ copy.archive.production }}</h2>
+        <span class="group-count">{{ production_count }} {{ copy.archive.project_word }}</span>
       </div>
-      <p class="group-description">Built for real users and real constraints.</p>
+      <p class="group-description">{{ copy.archive.production_description }}</p>
       <div class="project-grid archive-grid" id="production-projects">
         {% for repo in production_repos %}
-          {% include repo.html repo=repo category="production" category_status="production" %}
+          {% include repo.html repo=repo category="production" category_status=copy.archive.production %}
         {% endfor %}
       </div>
     </section>
 
     <section class="project-group" data-project-group="personal">
       <div class="group-head">
-        <h2>Personal &amp; learning</h2>
-        <span class="group-count">{{ personal_count }} projects</span>
+        <h2>{{ copy.archive.personal }}</h2>
+        <span class="group-count">{{ personal_count }} {{ copy.archive.project_word }}</span>
       </div>
-      <p class="group-description">Built to scratch an itch, explore a tool, or learn something new.</p>
+      <p class="group-description">{{ copy.archive.personal_description }}</p>
       <div class="project-grid archive-grid" id="personal-projects">
         {% for repo in repos %}
           {% unless production_names contains repo.name %}
-            {% include repo.html repo=repo category="personal" category_status="personal / learning" %}
+            {% include repo.html repo=repo category="personal" category_status=copy.archive.personal %}
           {% endunless %}
         {% endfor %}
       </div>
     </section>
 
-    <p class="empty-state is-hidden" data-no-results>No projects match that search or topic.</p>
+    <p class="empty-state is-hidden" data-no-results>{{ copy.archive.empty }}</p>
   </div>
 </section>

@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Only run section scrollspy on homepage
-  if (currentPath !== "/" && currentPath !== "/index.html" && currentPath !== "") {
+  if (currentPath !== "/" && currentPath !== "/index.html" && currentPath !== "/en/" && currentPath !== "/en/index.html" && currentPath !== "") {
     return;
   }
 
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const setActiveLink = (activeId) => {
     navLinks.forEach((link) => {
       const href = link.getAttribute("href");
-      if (href && (href === `#${activeId}` || href === `/#${activeId}`)) {
+      if (href && (href === `#${activeId}` || href === `/#${activeId}` || href === `/en/#${activeId}`)) {
         link.classList.add("active");
         link.setAttribute("aria-current", "true");
       } else if (!href?.includes("/curriculum")) {

@@ -16,6 +16,7 @@ if (filter) {
   const count = filter.querySelector(".filter-count");
   const empty = document.querySelector("[data-no-results]");
   let selectedTopic = "all";
+  const isPortuguese = document.documentElement.lang.toLowerCase() === "pt-br";
 
   function updateProjects() {
     const query = search.value.trim().toLowerCase();
@@ -41,7 +42,9 @@ if (filter) {
       group.classList.toggle("is-hidden", !hasVisibleProjects);
     });
 
-    count.textContent = `Showing ${visible} project${visible === 1 ? "" : "s"}`;
+    count.textContent = isPortuguese
+      ? `${visible} ${visible === 1 ? "projeto exibido" : "projetos exibidos"}`
+      : `Showing ${visible} project${visible === 1 ? "" : "s"}`;
     empty.classList.toggle("is-hidden", visible !== 0);
   }
 

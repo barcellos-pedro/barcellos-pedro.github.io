@@ -3,4 +3,10 @@
 {% assign description = include.featured_description | default: repo.description %}
 {% assign tags = include.featured_tags | default: repo.topics %}
 {% assign status = include.featured_status | default: include.category_status %}
+{% assign locale = page.locale | default: "pt-br" %}
+{% assign copy = site.data.translations[locale] %}
+{% unless include.featured_description %}
+  {% assign translated_description = copy.repos[repo.name] %}
+  {% if translated_description %}{% assign description = translated_description %}{% endif %}
+{% endunless %}
 {% include project-card.html name=repo.name description=description topics=repo.topics tags=tags code_url=repo.html_url live_url=repo.homepage category=category status=status %}

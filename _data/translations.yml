@@ -1,0 +1,392 @@
+pt-br:
+  html_lang: pt-BR
+  switch_label: English
+  switch_short: EN
+  meta:
+    description: "Pedro Barcellos é engenheiro de software backend em São Paulo. Ele desenvolve sistemas web confiáveis, APIs transacionais e ferramentas de dados para equipes que não podem perder nenhum registro."
+    title: "Pedro Barcellos — Engenheiro de Software e Backend"
+  nav:
+    work: Trabalho
+    curriculum: Currículo
+    process: Processo
+    about: Sobre
+    cta: Fale comigo
+    aria: Navegação principal
+  footer:
+    eyebrow: ENTRE EM CONTATO
+    title: Tem um projeto que precisa de um backend confiável?
+    description: "Assumo um número limitado de projetos de consultoria e contrato além do meu trabalho no Itaú. Se houver uma boa combinação, vou dizer isso com honestidade."
+    location: "São Paulo, BR (GMT-3)"
+  home:
+    title: Início
+    eyebrow: "ENGENHEIRO DE SOFTWARE · WEB E BACKEND · SÃO PAULO, BR"
+    headline: Construo sistemas web que mantêm seus dados em ordem.
+    lede: "Sou engenheiro backend em São Paulo, atualmente no Itaú. Desenvolvo aplicações transacionais, ferramentas internas e APIs para equipes que não podem perder um único registro — e assumo alguns projetos de consultoria e contrato ao lado do meu trabalho."
+    primary_cta: Começar um projeto
+    work_cta: Ver trabalhos em destaque
+    stats:
+      shipped: Projetos entregues
+      financial: APIs financeiras e essenciais
+      consulting: Disponível para projetos selecionados
+      production: Produção
+      consulting_value: Consultoria
+    services_title: O que eu construo
+    services_label: /serviços
+    work_title: Trabalhos em destaque
+    work_label: "/projetos · selecionados"
+    work_intro: "Algumas coisas que entreguei — de uma API financeira pronta para produção a projetos paralelos que resolvem problemas reais."
+    archive_tag: Arquivo público de repositórios
+    archive_title: Explore todos os repositórios
+    archive_description: "Pesquise e filtre APIs de produção, aplicações web, bibliotecas open source e experimentos técnicos."
+    archive_cta: Ver arquivo completo
+    process_title: Como eu trabalho
+    process_label: /processo
+    process:
+      - title: Descoberta
+        description: "Uma conversa curta para entender o problema, as restrições e o que significa concluir o trabalho."
+      - title: Construção
+        description: "Check-ins regulares e software funcionando desde cedo. Nada de desaparecer por meses dentro de uma caixa-preta."
+      - title: Entrega e suporte
+        description: "Faço o deploy, entrego uma documentação clara e continuo acessível depois do lançamento — não desapareço no dia da entrega."
+    about_title: Sobre
+    about_label: /sobre
+    about: "Sou engenheiro de software no Itaú, focado em desenvolvimento web e backend, baseado em São Paulo. Fora dos projetos de clientes, geralmente estou imerso em um projeto pessoal, treinando para minha próxima prova de 5 ou 10 km, ou ouvindo um podcast sobre psicologia ou filosofia. Gosto de sistemas que resistem à pressão, no código e fora dele."
+  services:
+    - label: BACKEND
+      title: Sistemas transacionais
+      description: "APIs e serviços em que estar correto importa mais do que ser rápido: transferências, pagamentos, trilhas de auditoria e aqueles casos extremos que só aparecem quando já causaram problemas."
+    - label: FULL-STACK
+      title: Aplicações web
+      description: "Aplicações web completas para pessoas reais — ferramentas internas, painéis administrativos e plataformas comunitárias — construídas para continuar fáceis de manter depois do lançamento."
+    - label: DATA
+      title: Dashboards e ferramentas de dados
+      description: "Transformo planilhas e exportações brutas em ferramentas objetivas que uma equipe pode usar todos os dias: importar, categorizar, visualizar, repetir."
+    - label: ADVISORY
+      title: Consultoria técnica
+      description: "Revisões de arquitetura, auditorias de código e um segundo par de olhos experientes para equipes no meio de um projeto ou tentando destravar um problema."
+  terminal:
+    label: pedro@pedroreis.dev / registro de projetos
+    status: disponível para novos projetos
+    note: disponibilidade de 4 anos+
+  archive:
+    title: Tudo que entreguei ou quebrei de propósito.
+    description: "Trabalhos de produção ficam lado a lado com projetos pessoais e exercícios que construíram minha experiência. Filtre pelos tópicos originais dos repositórios abaixo."
+    back: Voltar para o início
+    eyebrow: "ARQUIVO PÚBLICO DE REPOSITÓRIOS · TOTAL"
+    search_label: Pesquisar projetos
+    placeholder: Pesquise por nome, descrição ou tópico
+    topic_aria: Filtrar por tópico do repositório
+    all: Todos
+    showing_one: projeto exibido
+    showing_many: projetos exibidos
+    project_word: projetos
+    production: Prontos para produção
+    production_description: Construídos para usuários e restrições reais.
+    personal: Pessoais e de aprendizado
+    personal_description: "Feitos para explorar uma ideia, experimentar uma ferramenta ou aprender algo novo."
+    empty: Nenhum projeto corresponde a essa busca ou tópico.
+  project:
+    source: Código
+    live_demo: Demo ao vivo
+  curriculum:
+    title: Currículo
+    eyebrow: "CURRÍCULO · SÃO PAULO, BR"
+    role_suffix: " — Backend e Sistemas Distribuídos"
+    bio: "Engenheiro de software com sólida experiência em arquiteturas de alta vazão no Itaú Unibanco. Especializado na construção de APIs escaláveis com Java, Spring Boot e Kafka, combinando resiliência e observabilidade com uma base consistente em engenharia frontend moderna."
+    direct_contact: CONTATO DIRETO
+    location: LOCALIZAÇÃO
+    print: Imprimir / Salvar PDF
+    contact: Fale comigo
+    philosophy_label: 01 / FILOSOFIA TÉCNICA
+    philosophy_title: Engenharia guiada por resiliência e clareza
+    philosophy:
+      - "Acredito que a excelência em engenharia de software nasce da simplicidade arquitetural e da previsibilidade operacional. Em ambientes corporativos como o Corporate Banking do Itaú Unibanco, cada linha de código precisa ser projetada para suportar grandes volumes de transações mantendo latência ultrabaixa."
+      - "Minha experiência transita entre sistemas distribuídos em nuvem (Java, Kafka, AWS, Kubernetes) e interfaces web intuitivas e performáticas (TypeScript, Angular, Node.js). Essa visão de ponta a ponta ajuda a antecipar gargalos de integração, criar ferramentas amigáveis para desenvolvedores e garantir observabilidade profunda em produção."
+    experience_label: 02 / LINHA DO TEMPO PROFISSIONAL
+    experience_title: Experiência profissional
+    architecture_label: 03 / ESTUDOS DE CASO
+    architecture_title: Arquiteturas e projetos em destaque
+    skills_label: 04 / COMPETÊNCIAS
+    skills_title: Competências e matriz técnica
+    education_label: 05 / FORMAÇÃO ACADÊMICA
+    education_title: Formação
+    experience:
+      - company: Itaú Unibanco
+        role: Engenheiro de Software Backend
+        period: "set. 2023 — Presente"
+        description: "Desenvolvimento e engenharia de APIs escaláveis de alto desempenho e microsserviços essenciais que sustentam os ecossistemas mobile e web do segmento Corporate Banking (PJ)."
+        bullets:
+          - "Responsabilidade pelo ciclo completo: desenho arquitetural, execução de código resiliente, provisionamento de infraestrutura e monitoramento ativo."
+          - "Implementação de arquiteturas orientadas a eventos com Apache Kafka para mensageria assíncrona de alta vazão."
+          - "Construção de pipelines robustos de CI/CD com GitHub Actions e AWS, acelerando entregas contínuas com práticas rigorosas de segurança."
+          - "Deploy e orquestração de microsserviços conteinerizados em clusters Kubernetes gerenciados pelo AWS EKS."
+          - "Monitoramento e observabilidade avançados com Prometheus, AppDynamics, Splunk e Grafana para detecção contínua de anomalias."
+      - company: Itaú Unibanco
+        role: Engenheiro de Software Frontend
+        period: "set. 2021 — set. 2023"
+        description: "Arquitetura e manutenção de ferramentas internas para otimizar a automação de fluxos e a produtividade de desenvolvedores em equipes do banco."
+        bullets:
+          - "Desenvolvimento de integrações e plugins personalizados para unificar a comunicação entre sistemas e plataformas internas."
+          - "Automação de fluxos serverless na AWS usando Node.js, AWS Lambda e TypeScript."
+          - "Elaboração de documentação técnica completa para padronização de ferramentas e integração de novos desenvolvedores."
+          - "Garantia de confiabilidade por meio de testes unitários e de integração automatizados com Jest."
+      - company: Betalabs
+        role: Desenvolvedor Frontend
+        period: "out. 2020 — ago. 2021"
+        description: "Construção de interfaces reativas para modelos de assinatura SaaS e aplicações web de comércio eletrônico."
+        bullets:
+          - "Prototipação técnica de novas funcionalidades e layouts de interface usando Figma."
+          - "Construção de componentes frontend escaláveis e pipelines de gerenciamento de estado com Angular e NgRx."
+          - "Refatoração de código legado, correção de bugs de interface e evolução contínua de UI/UX com SASS e Bootstrap."
+    architectures:
+      - title: Plataforma de APIs para Corporate Banking de alta vazão
+        category: PLATAFORMA DE API E STREAMING
+        period: 2023 — Presente
+        description: "Arquitetura desacoplada de microsserviços Kubernetes para o setor bancário corporativo, com pipelines de streaming via Apache Kafka e cache Redis de alto desempenho."
+      - title: Ecossistema de ferramentas e plugins internos
+        category: FERRAMENTAS DE DESENVOLVIMENTO E AUTOMAÇÃO
+        period: 2021 — 2023
+        description: "Solução serverless baseada em AWS Lambda e Node.js para automatizar fluxos operacionais, eliminar silos entre equipes e melhorar o ritmo de entrega."
+    skills:
+      - category: Backend e sistemas
+        items: ["Java e Spring Boot", "Apache Kafka e event streaming", "Redis (cache e estado)", "Design de APIs RESTful e arquitetura distribuída", "Node.js e Express"]
+      - category: Cloud, DevOps e observabilidade
+        items: ["AWS (EKS, Lambda, EC2, S3)", "Kubernetes e Docker", "CI/CD (GitHub Actions, AWS CodePipeline)", "Prometheus e Grafana", "Splunk e AppDynamics"]
+      - category: Frontend e interfaces
+        items: ["TypeScript e JavaScript (ES6+)", "Angular e NgRx", "Jest (testes automatizados)", "SASS e design responsivo", "Figma (prototipação UI/UX)"]
+    education:
+      - institution: Faculdade IMPACTA
+        degree: Bacharelado em Engenharia da Computação
+        period: 2020 — 2024
+      - institution: ETEC — Escola Técnica Estadual
+        degree: Técnico em Informática
+        period: 2016 — 2017
+  featured:
+    transfer-web-api:
+      status: pronto para produção
+      description: "API de transferências financeiras de alta concorrência, com bloqueio pessimista para evitar atualizações perdidas e trilha de auditoria projetada para sistemas responsáveis."
+    condohub:
+      status: entregue de ponta a ponta
+      description: "Aplicação web comunitária para moradores compartilharem novidades, discutirem temas locais e recomendarem serviços em um só lugar."
+    finance-dashboard:
+      status: útil desde o primeiro uso
+      description: "Dashboard financeiro interativo que transforma uploads de extratos bancários em transações categorizadas e padrões de gastos fáceis de entender."
+    bookmarks-visualizer:
+      status: projeto paralelo
+      description: "Ferramenta estática rápida para organizar e pesquisar favoritos exportados do navegador, criada em torno de um problema pequeno com uma resposta prática."
+  repos:
+    barcellos-pedro.github.io: "Portfólio pessoal e site com blog criado em Jekyll, apresentando projetos e publicações."
+    credit-card-review: "Dashboard para analisar faturas de cartão de crédito e visualizar gastos com gráficos, indicadores e tabela consolidada."
+    condohub: "Aplicação web para moradores compartilharem novidades, discutirem temas da comunidade e recomendarem serviços locais."
+    finance-dashboard: "Dashboard interativo para importar extratos, categorizar transações e visualizar padrões de gastos."
+    bookmarks-visualizer: "Ferramenta estática para organizar e pesquisar favoritos exportados do navegador."
+    pedroreis.dev: "Portfólio de engenharia de software focado em sistemas web confiáveis, APIs transacionais e ferramentas de dados."
+    transfer-web-api: "API de transferências financeiras com concorrência controlada, consistência e trilha de auditoria."
+    thane-js: "Thane.js — uma forma simples e tradicional de criar aplicações web."
+    dev-mastery: "Lista dos meus projetos favoritos e roadmaps construídos ao longo do meu aprendizado."
+    games-cup: "Aplicação interativa desenvolvida com Angular."
+    barcellos-pedro: "README do meu perfil público."
+    roadmap: "Repositório que acompanha meu crescimento em engenharia, marcos arquiteturais e evolução técnica."
+    java-http-server: "Servidor web Java minimalista: de sockets TCP a controladores HTTP, sem dependências externas."
+    starting-in-react: "Projeto inicial para aprender React."
+    jotted: "Geração de front matter Markdown a partir de anotações."
+    php-oop: "Projeto baseado em um curso da Laracasts."
+    php-for-beginners: "Projeto baseado em um curso da Laracasts."
+    codesignal-dsa-python: "Exemplos baseados no curso da CodeSignal."
+    nodejs-child-process: "Demonstração do uso e dos recursos de processos-filho."
+    sistematic-review: "Projeto de revisão sistemática."
+    demo-htmx: "Demonstração de Express, Handlebars e HTMX."
+    spotify-api: "Projeto de integração com a API do Spotify."
+    tiny-test: "Biblioteca simples de testes baseada em console.assert."
+    web-node-express: "Projeto baseado no livro de Ethan Brown sobre desenvolvimento web com Node e Express."
+    dependency-injection: "Exemplo prático de injeção de dependências."
+    grokking-algorithms: "Exercícios baseados no livro Grokking Algorithms."
+    poc-express-handlebars: "Projeto para praticar o deploy de uma aplicação web do zero."
+    polling: "Exemplo de short polling em Node.js."
+    nodejs-template-engine: "Engine de templates básica para JavaScript e Node.js."
+    sse-nodejs: "Server-sent events com Node.js e Express."
+    dsa: "Estruturas de dados e algoritmos."
+    nodejs-os-data: "Coleta de dados relacionados ao sistema operacional."
+    angular-mastery: "Projeto para aprender e construir aplicações com Angular."
+    react-mastery: "Projeto para aprender e construir aplicações com React."
+    deno-mastery: "Projeto para aprender e construir aplicações com Deno."
+    blogr-nextjs-prisma: "Projeto criado para sair da zona de tutoriais e praticar Next.js e Prisma."
+    react-table: "Projeto de prática para construir uma tabela dinâmica."
+    mern-stack: "Projeto baseado em um curso da Traversy Media."
+    thinking-in-react: "Projeto baseado no guia Thinking in React e nos padrões do Patterns.dev."
+    react-hooks-introduction: "Introdução a hooks com exemplos práticos, baseada em um vídeo da Fireship."
+    vue-mastery: "Lista de projetos pessoais e de cursos desenvolvidos durante meu aprendizado, baseada no Vue Mastery."
+    vue-unscramble: "Projeto baseado no curso Android Basics in Kotlin."
+    javascript-snippets: "Exemplos de tópicos diversos em JavaScript."
+    python-snippets: "Exemplos de tópicos diversos em Python."
+    projeto-vue-nuxt-leads: "Projeto de captação de leads com Vue e Nuxt."
+    basic-responsive-design: "Exercícios de design responsivo básico."
+    make-my-dog: "Resposta de um teste para desenvolvedor frontend júnior usando a Dog API."
+    buscar_cep: "Exemplo de busca de CEP com jQuery através do webservice ViaCEP."
+    amazon_scrapping: "Exercício de web scraping na Amazon usando Python e BeautifulSoup."
+    tarefas-colaboradores: "Aplicação para organizar tarefas de colaboradores."
+    demoday: "Projeto desenvolvido para a conclusão do curso Estação Hack do Facebook."
+en:
+  html_lang: en
+  switch_label: Português
+  switch_short: PT-BR
+  meta:
+    description: "Pedro Barcellos is a backend software engineer in São Paulo. He builds dependable web systems, transactional APIs, and data tools for teams that cannot afford to lose a record."
+    title: "Pedro Barcellos — Software Engineer & Backend Developer"
+  nav:
+    work: Work
+    curriculum: Curriculum
+    process: Process
+    about: About
+    cta: Email me
+    aria: Main navigation
+  footer:
+    eyebrow: GET IN TOUCH
+    title: Have a project that needs a steady backend?
+    description: "I take on a small number of consulting and contract engagements alongside my role at Itaú. If it is a good fit, I will tell you honestly."
+    location: "São Paulo, BR (GMT-3)"
+  home:
+    title: Home
+    eyebrow: "SOFTWARE ENGINEER · WEB AND BACKEND · SÃO PAULO, BR"
+    headline: I build web systems that keep your data straight.
+    lede: "I'm a backend engineer in São Paulo, currently at Itaú. I build transactional apps, internal tools, and APIs for teams that can't afford to lose a single record — and I take on a few consulting and contract projects alongside my day job."
+    primary_cta: Start a project
+    work_cta: See featured work
+    stats:
+      shipped: Projects shipped
+      financial: Financial & core APIs
+      consulting: Available for select work
+      production: Production
+      consulting_value: Consulting
+    services_title: What I build
+    services_label: /services
+    work_title: Featured work
+    work_label: "/projects · selected"
+    work_intro: "A few things I've shipped — from a production-grade financial API to side projects that solve a real problem."
+    archive_tag: Public repository archive
+    archive_title: Explore all repositories
+    archive_description: "Search and filter production APIs, web applications, open source libraries, and technical experiments."
+    archive_cta: Browse full archive
+    process_title: How I work
+    process_label: /process
+    process:
+      - title: Discovery
+        description: "A short call to understand the problem, the constraints, and what done actually looks like."
+      - title: Build
+        description: "Regular check-ins and working software early. No disappearing for months into a black box."
+      - title: Ship and support
+        description: "Deploy, hand off clear documentation, and stay reachable after launch, not gone the day it ships."
+    about_title: About
+    about_label: /about
+    about: "I am a software engineer at Itaú focused on web and backend development, based in São Paulo. Outside of client work I am usually deep in a personal project, training for my next 5K or 10K, or a few episodes into a podcast about psychology or philosophy. I like systems that hold up under pressure, in code and otherwise."
+  services:
+    - label: BACKEND
+      title: Transactional systems
+      description: "APIs and services where being right matters more than being fast: transfers, payments, audit trails, and the edge cases nobody thinks about until they bite."
+    - label: FULL-STACK
+      title: Web applications
+      description: "End-to-end web apps for real users — internal tools, admin panels, community platforms — built to stay maintainable long after launch."
+    - label: DATA
+      title: Dashboards and data tools
+      description: "Turn spreadsheets and raw exports into focused tools a team can use every day: upload, categorize, visualize, repeat."
+    - label: ADVISORY
+      title: Technical consulting
+      description: "Architecture reviews, code audits, and a second pair of experienced eyes for teams that are mid-project or getting unstuck."
+  terminal:
+    label: pedro@pedroreis.dev / engagement.log
+    status: available for new engagements
+    note: uptime 4yr+
+  archive:
+    title: Everything I have shipped or broken on purpose.
+    description: "Production-grade work sits alongside the personal projects and exercises that built the range behind it. Filter by the original repository topics below."
+    back: Back to home
+    eyebrow: "PUBLIC REPOSITORY ARCHIVE · TOTAL"
+    search_label: Search projects
+    placeholder: Search by name, description, or topic
+    topic_aria: Filter by repository topic
+    all: All
+    showing_one: project
+    showing_many: projects
+    project_word: projects
+    production: Production-grade
+    production_description: Built for real users and real constraints.
+    personal: Personal & learning
+    personal_description: "Built to scratch an itch, explore a tool, or learn something new."
+    empty: No projects match that search or topic.
+  project:
+    source: Code
+    live_demo: Live Demo
+  curriculum:
+    title: Curriculum Vitae
+    eyebrow: "CURRICULUM VITAE · SÃO PAULO, BR"
+    role_suffix: " — Back-End & Distributed Systems"
+    bio: "Software Engineer with strong experience in high-throughput architectures at Itaú Unibanco. Specialized in building scalable APIs with Java, Spring Boot, and Kafka, combining resilience and observability with a solid foundation in modern front-end engineering."
+    direct_contact: DIRECT CONTACT
+    location: LOCATION
+    print: Print / Save PDF
+    contact: Contact Me
+    philosophy_label: 01 / TECHNICAL PHILOSOPHY
+    philosophy_title: Engineering driven by resilience and clarity
+    philosophy:
+      - "I believe software engineering excellence stems from architectural simplicity and operational predictability. In enterprise environments like Itaú Unibanco Corporate Banking, every line of code must be designed to withstand high transaction volumes while maintaining ultra-low latency."
+      - "My background smoothly spans distributed cloud systems (Java, Kafka, AWS, Kubernetes) and intuitive, performant web interfaces (TypeScript, Angular, Node.js). This end-to-end perspective helps anticipate integration bottlenecks, build developer-friendly tooling, and ensure deep production observability."
+    experience_label: 02 / CAREER TIMELINE
+    experience_title: Professional Experience
+    architecture_label: 03 / CASE STUDIES
+    architecture_title: Featured Architectures & Projects
+    skills_label: 04 / SKILLS
+    skills_title: Competencies & Technical Matrix
+    education_label: 05 / ACADEMIC BACKGROUND
+    education_title: Education
+    experience:
+      - company: Itaú Unibanco
+        role: Back-End Software Engineer
+        period: "Sep 2023 — Present"
+        description: "Development and engineering of scalable high-performance APIs and core microservices driving the mobile and web ecosystems for the Corporate Banking (PJ) segment."
+        bullets: ["Full lifecycle responsibility: architectural design, resilient code execution, infrastructure provisioning, and active monitoring.", "Implementation of event-driven architectures utilizing Apache Kafka for high-throughput asynchronous messaging.", "Construction of robust CI/CD pipelines via GitHub Actions and AWS, accelerating continuous delivery with strict security practices.", "Deployment and orchestration of containerized microservices on Kubernetes clusters managed through AWS EKS.", "Advanced monitoring and observability using Prometheus, AppDynamics, Splunk, and Grafana for continuous anomaly detection."]
+      - company: Itaú Unibanco
+        role: Front-End Software Engineer
+        period: "Sep 2021 — Sep 2023"
+        description: "Architected and maintained internal software tools to streamline workflow automation and developer productivity across bank teams."
+        bullets: ["Developed custom integrations and plugins to unify communication across internal systems and platforms.", "Automated serverless workflows on AWS utilizing Node.js, AWS Lambda, and TypeScript.", "Authored thorough technical documentation for tooling standardization and seamless developer onboarding.", "Ensured software reliability through automated unit and integration testing with Jest."]
+      - company: Betalabs
+        role: Front-End Developer
+        period: "Oct 2020 — Aug 2021"
+        description: "Focused on building reactive user interfaces for SaaS subscription models and e-commerce web applications."
+        bullets: ["Technical prototyping of new product features and UI layouts using Figma.", "Built scalable front-end components and state management pipelines using Angular and NgRx.", "Refactored legacy code, resolved interface bugs, and continuously enhanced UI/UX with SASS and Bootstrap."]
+    architectures:
+      - title: High-Throughput Corporate Banking API Platform
+        category: API PLATFORM & STREAMING
+        period: 2023 — Present
+        description: "Decoupled Kubernetes microservices architecture for enterprise banking. Features streaming pipelines via Apache Kafka and high-performance Redis caching."
+      - title: Internal Tooling & Plugin Ecosystem
+        category: DEVELOPER TOOLING & AUTOMATION
+        period: 2021 — 2023
+        description: "Serverless solution built on AWS Lambda and Node.js for automating operational workflows, eliminating team silos, and enhancing delivery cadence."
+    skills:
+      - category: Back-End & Systems
+        items: ["Java & Spring Boot", "Apache Kafka & Event Streaming", "Redis (Caching & State)", "RESTful API Design & Distributed Architecture", "Node.js & Express"]
+      - category: Cloud, DevOps & Observability
+        items: ["AWS (EKS, Lambda, EC2, S3)", "Kubernetes & Docker", "CI/CD (GitHub Actions, AWS CodePipeline)", "Prometheus & Grafana", "Splunk & AppDynamics"]
+      - category: Front-End & Interfaces
+        items: ["TypeScript & JavaScript (ES6+)", "Angular & NgRx", "Jest (Automated Testing)", "SASS & Responsive UI Design", "Figma (UI/UX Prototyping)"]
+    education:
+      - institution: Faculdade IMPACTA
+        degree: B.S. in Computer Engineering
+        period: 2020 — 2024
+      - institution: ETEC — Escola Técnica Estadual
+        degree: Technical Diploma in Information Technology
+        period: 2016 — 2017
+  featured:
+    transfer-web-api:
+      status: production-grade
+      description: "High-concurrency financial transfers API with pessimistic locking to prevent lost updates and an audit trail designed for accountable systems."
+    condohub:
+      status: shipped end to end
+      description: "Community web app for condominium residents to share updates, discuss local topics, and recommend services in one place."
+    finance-dashboard:
+      status: useful by default
+      description: "Interactive finance dashboard that turns bank statement uploads into categorized transactions and readable spending patterns."
+    bookmarks-visualizer:
+      status: side project
+      description: "Fast static tool for organizing and searching browser-exported bookmarks, built around a small problem with a very practical answer."

@@ -1,17 +1,20 @@
-<div class="terminal" aria-label="Selected project request log">
+{% assign locale = page.locale | default: "pt-br" %}
+{% assign copy = site.data.translations[locale] %}
+<div class="terminal" aria-label="{{ copy.terminal.label }}">
   <div class="terminal-bar">
     <span class="terminal-dot" aria-hidden="true"></span>
     <span class="terminal-dot" aria-hidden="true"></span>
     <span class="terminal-dot" aria-hidden="true"></span>
-    <span class="terminal-label">{{ site.data.terminal.label }}</span>
+    <span class="terminal-label">{{ copy.terminal.label }}</span>
   </div>
   <div class="terminal-body" id="terminal-body">
     <div class="terminal-line">$ pedro --status</div>
-    <div class="terminal-line terminal-status">&gt; {{ site.data.terminal.status }}</div>
+    <div class="terminal-line terminal-status">&gt; {{ copy.terminal.status }}</div>
     <div class="terminal-line terminal-spacer" aria-hidden="true"></div>
     {% for request in site.data.terminal.requests %}
     <div class="terminal-line"><span class="terminal-method">{{ request.method }}</span> <span class="terminal-path">{{ request.path }}</span> <span class="terminal-ok">{{ request.code }}</span>{% if request.project %} <span class="terminal-project">{{ request.project }}</span>{% elsif request.note %} <span class="terminal-dim">{{ request.note }}</span>{% endif %}</div>
     {% endfor %}
+    <div class="terminal-line terminal-dim">&gt; {{ copy.terminal.note }}</div>
     <span class="terminal-cursor" aria-hidden="true"></span>
   </div>
 </div>

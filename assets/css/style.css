@@ -99,6 +99,8 @@ h1, h2, h3, p { margin-top: 0; }
 .process-number,
 .nav-links,
 .nav-cta,
+.nav-actions,
+.language-switch,
 .button,
 .button-link,
 .work-more,
@@ -184,6 +186,21 @@ h1, h2, h3, p { margin-top: 0; }
   white-space: nowrap;
   transition: background 0.15s ease, color 0.15s ease;
 }
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.language-switch {
+  color: var(--ink-soft);
+  font-size: 11px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.language-switch:hover { color: var(--accent-ink); }
 
 .nav-cta:hover {
   background: var(--accent-soft);
@@ -844,6 +861,7 @@ section { padding: 72px 0; }
   .nav-inner { min-height: 61px; }
   .nav-links { display: flex; gap: 0; }
   .nav-links a:not(.nav-resume) { display: none; }
+  .nav-actions { gap: 9px; }
   .hero { padding: 60px 0 54px; }
   .hero h1 { font-size: clamp(2.45rem, 12vw, 3.5rem); }
   .hero-lede { font-size: 16px; }

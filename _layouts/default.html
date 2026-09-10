@@ -1,5 +1,7 @@
+{% assign locale = page.locale | default: "pt-br" %}
+{% assign copy = site.data.translations[locale] %}
 <!doctype html>
-<html lang="en">
+<html lang="{{ copy.html_lang }}">
 
 <head>
     <meta charset="UTF-8">
@@ -18,13 +20,13 @@
     </main>
     <footer class="contact-footer">
         <div class="wrap">
-            <div class="eyebrow"><span class="eyebrow-dot"></span>GET IN TOUCH</div>
-            <h2>Have a project that needs a steady backend?</h2>
-            <p class="contact-lede">I take on a small number of consulting and contract engagements alongside my role at Itaú. If it is a good fit, I will tell you honestly.</p>
+            <div class="eyebrow"><span class="eyebrow-dot"></span>{{ copy.footer.eyebrow }}</div>
+            <h2>{{ copy.footer.title }}</h2>
+            <p class="contact-lede">{{ copy.footer.description }}</p>
             <a class="contact-email" href="mailto:pedrobarcellosreis@gmail.com">pedrobarcellosreis@gmail.com</a>
             <div class="contact-foot">
                 <div class="contact-links">{% include links.html group="primary" %}</div>
-                <div class="contact-fine">São Paulo, BR (GMT-3) · <span class="secondary-links">{% include links.html group="secondary" %}</span></div>
+                <div class="contact-fine">{{ copy.footer.location }} · <span class="secondary-links">{% include links.html group="secondary" %}</span></div>
             </div>
         </div>
     </footer>

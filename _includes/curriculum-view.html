@@ -1,32 +1,34 @@
 {% assign cv = site.data.curriculum %}
+{% assign locale = page.locale | default: "pt-br" %}
+{% assign copy = site.data.translations[locale] %}
 
 <article class="curriculum-page">
   <!-- Top Header / Hero -->
   <header class="curriculum-header">
     <div class="wrap">
-      <div class="eyebrow"><span class="eyebrow-dot"></span>CURRICULUM VITAE · SÃO PAULO, BR</div>
+      <div class="eyebrow"><span class="eyebrow-dot"></span>{{ copy.curriculum.eyebrow }}</div>
       <h1 class="curriculum-name">{{ cv.meta.name }}</h1>
-      <p class="curriculum-role">{{ cv.meta.role }} — Back-End &amp; Distributed Systems</p>
+      <p class="curriculum-role">{{ cv.meta.role }}{{ copy.curriculum.role_suffix }}</p>
       
       <div class="curriculum-lead-grid">
-        <p class="curriculum-bio">{{ cv.summary.bio }}</p>
+        <p class="curriculum-bio">{{ copy.curriculum.bio }}</p>
         
         <div class="curriculum-meta-panel">
           <div class="meta-item">
-            <span class="meta-label">DIRECT CONTACT</span>
+            <span class="meta-label">{{ copy.curriculum.direct_contact }}</span>
             <a class="meta-value link-underline" href="mailto:{{ cv.meta.email }}">{{ cv.meta.email }}</a>
           </div>
           <div class="meta-item">
-            <span class="meta-label">LOCATION</span>
+            <span class="meta-label">{{ copy.curriculum.location }}</span>
             <span class="meta-value">{{ cv.meta.location }}</span>
           </div>
           <div class="curriculum-actions no-print">
             <button type="button" class="button button-primary print-trigger" onclick="window.print()">
               <svg class="icon-inline" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
-              Print / Save PDF
+              {{ copy.curriculum.print }}
             </button>
             <a class="button button-secondary" href="mailto:{{ cv.meta.email }}">
-              Contact Me
+              {{ copy.curriculum.contact }}
             </a>
           </div>
         </div>
@@ -38,11 +40,11 @@
   <section class="curriculum-section" id="philosophy">
     <div class="wrap">
       <div class="section-head">
-        <h2>{{ cv.philosophy.title }}</h2>
-        <span class="section-label">01 / TECHNICAL PHILOSOPHY</span>
+        <h2>{{ copy.curriculum.philosophy_title }}</h2>
+        <span class="section-label">{{ copy.curriculum.philosophy_label }}</span>
       </div>
       <div class="philosophy-content">
-        {% for p in cv.philosophy.paragraphs %}
+        {% for p in copy.curriculum.philosophy %}
         <p>{{ p }}</p>
         {% endfor %}
       </div>
@@ -53,11 +55,11 @@
   <section class="curriculum-section" id="experience">
     <div class="wrap">
       <div class="section-head">
-        <h2>Professional Experience</h2>
-        <span class="section-label">02 / CAREER TIMELINE</span>
+        <h2>{{ copy.curriculum.experience_title }}</h2>
+        <span class="section-label">{{ copy.curriculum.experience_label }}</span>
       </div>
       <div class="timeline">
-        {% for item in cv.experience %}
+        {% for item in copy.curriculum.experience %}
         <div class="timeline-item">
           <div class="timeline-marker"></div>
           <div class="timeline-header">
@@ -92,11 +94,11 @@
   <section class="curriculum-section" id="architectures">
     <div class="wrap">
       <div class="section-head">
-        <h2>Featured Architectures &amp; Projects</h2>
-        <span class="section-label">03 / CASE STUDIES</span>
+        <h2>{{ copy.curriculum.architecture_title }}</h2>
+        <span class="section-label">{{ copy.curriculum.architecture_label }}</span>
       </div>
       <div class="architectures-grid">
-        {% for arch in cv.architectures %}
+        {% for arch in copy.curriculum.architectures %}
         <article class="architecture-card">
           <div class="arch-card-top">
             <span class="arch-category">{{ arch.category }}</span>
@@ -119,11 +121,11 @@
   <section class="curriculum-section" id="skills">
     <div class="wrap">
       <div class="section-head">
-        <h2>Competencies &amp; Technical Matrix</h2>
-        <span class="section-label">04 / SKILLS</span>
+        <h2>{{ copy.curriculum.skills_title }}</h2>
+        <span class="section-label">{{ copy.curriculum.skills_label }}</span>
       </div>
       <div class="skills-grid">
-        {% for group in cv.skills %}
+        {% for group in copy.curriculum.skills %}
         <div class="skill-group">
           <h3 class="skill-category">{{ group.category }}</h3>
           <ul class="skill-list">
@@ -144,11 +146,11 @@
   <section class="curriculum-section" id="education">
     <div class="wrap">
       <div class="section-head">
-        <h2>Education</h2>
-        <span class="section-label">05 / ACADEMIC BACKGROUND</span>
+        <h2>{{ copy.curriculum.education_title }}</h2>
+        <span class="section-label">{{ copy.curriculum.education_label }}</span>
       </div>
       <div class="education-list">
-        {% for edu in cv.education %}
+        {% for edu in copy.curriculum.education %}
         <div class="education-item">
           <div class="education-details">
             <h3>{{ edu.institution }}</h3>

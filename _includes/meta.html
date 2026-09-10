@@ -1,16 +1,21 @@
-<meta name="description" content="Pedro Barcellos is a backend engineer in São Paulo. He builds dependable web systems, transactional APIs, and data tools for teams that can't afford to lose a record.">
+{% assign locale = page.locale | default: "pt-br" %}
+{% assign copy = site.data.translations[locale] %}
+<meta name="description" content="{{ copy.meta.description }}">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<link rel="alternate" hreflang="pt-BR" href="{{ site.url }}{% if page.route_key == 'home' %}/{% elsif page.route_key == 'projects' %}/projects.html{% elsif page.route_key == 'curriculum' %}/curriculum/{% else %}/404.html{% endif %}">
+<link rel="alternate" hreflang="en" href="{{ site.url }}{% if page.route_key == 'home' %}/en/{% elsif page.route_key == 'projects' %}/en/projects.html{% elsif page.route_key == 'curriculum' %}/en/curriculum/{% else %}/en/404.html{% endif %}">
 
 <meta property="og:type" content="website">
-<meta property="og:url" content="{{ site.url }}/">
-<meta property="og:title" content="Pedro Barcellos — Software Engineer &amp; Backend Developer">
-<meta property="og:description" content="Pedro Barcellos is a backend engineer in São Paulo. He builds dependable web systems, transactional APIs, and data tools for teams that can't afford to lose a record.">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:title" content="{{ copy.meta.title }}">
+<meta property="og:description" content="{{ copy.meta.description }}">
 <meta property="og:image" content="{{ site.url }}/assets/images/social-preview.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:domain" content="pedroreis.dev">
-<meta name="twitter:title" content="Pedro Barcellos — Software Engineer &amp; Backend Developer">
-<meta name="twitter:url" content="{{ site.url }}/">
-<meta name="twitter:description" content="Pedro Barcellos is a backend engineer in São Paulo. He builds dependable web systems, transactional APIs, and data tools for teams that can't afford to lose a record.">
+<meta name="twitter:title" content="{{ copy.meta.title }}">
+<meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
+<meta name="twitter:description" content="{{ copy.meta.description }}">
 <meta name="twitter:image" content="{{ site.url }}/assets/images/social-preview.jpg">

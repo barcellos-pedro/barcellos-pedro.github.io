@@ -1,11 +1,19 @@
-<nav class="site-nav" aria-label="Main navigation">
+{% assign locale = page.locale | default: "pt-br" %}
+{% assign copy = site.data.translations[locale] %}
+{% assign base_path = "" %}
+{% if locale == "en" %}{% assign base_path = "/en" %}{% endif %}
+<nav class="site-nav" aria-label="{{ copy.nav.aria }}">
   <div class="nav-inner wrap">
     <a class="nav-name" href="/">Pedro Barcellos</a>
     <div class="nav-links">
-      {% for item in site.data.navigation %}
-      <a class="{% if item.name == 'Curriculum' %}nav-resume{% endif %}" href="{{ item.link }}">{{ item.name }}</a>
-      {% endfor %}
+      <a href="{{ base_path }}/#work">{{ copy.nav.work }}</a>
+      <a class="nav-resume" href="{{ base_path }}/curriculum/">{{ copy.nav.curriculum }}</a>
+      <a href="{{ base_path }}/#process">{{ copy.nav.process }}</a>
+      <a href="{{ base_path }}/#about">{{ copy.nav.about }}</a>
     </div>
-    <a class="nav-cta" href="mailto:pedrobarcellosreis@gmail.com">Email me</a>
+    <div class="nav-actions">
+      <a class="language-switch" href="{% if locale == 'en' %}{% if page.route_key == 'projects' %}/projects.html{% elsif page.route_key == 'curriculum' %}/curriculum/{% elsif page.route_key == 'error' %}/404.html{% else %}/{% endif %}{% else %}{% if page.route_key == 'projects' %}/en/projects.html{% elsif page.route_key == 'curriculum' %}/en/curriculum/{% elsif page.route_key == 'error' %}/en/404.html{% else %}/en/{% endif %}{% endif %}" lang="{% if locale == 'en' %}pt-BR{% else %}en{% endif %}" aria-label="{{ copy.switch_label }}">{{ copy.switch_short }}</a>
+      <a class="nav-cta" href="mailto:pedrobarcellosreis@gmail.com">{{ copy.nav.cta }}</a>
+    </div>
   </div>
 </nav>
