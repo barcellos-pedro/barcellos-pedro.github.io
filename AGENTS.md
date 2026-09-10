@@ -1,48 +1,38 @@
-# AGENTS.md
+# Repository Guidelines
 
-A Jekyll-based consulting portfolio on GitHub Pages at `pedroreis.dev`.
+## Project Structure
 
-## Dev Commands
+This is a minimal Jekyll portfolio deployed to GitHub Pages at `pedroreis.dev`.
+
+- `index.html` and `en/index.html` are the Portuguese and English homepages.
+- `projects.html` and `curriculum.html` have matching English pages under `en/`.
+- `_layouts/` contains the shared page shell; `_includes/` contains reusable Liquid components.
+- `_data/` holds navigation, translations, services, project metadata, curriculum content, and repository data.
+- `assets/css/style.css` contains the design system; `assets/js/` contains small interactive behaviors.
+- `docs/` contains supporting documentation. `_site/` is generated output and must not be edited.
+
+## Build and Development
 
 ```bash
-bundle install              # Install deps
-bundle exec jekyll serve    # Dev server at http://localhost:4000
-bundle exec jekyll build    # Build to _site/
+bundle install
+bundle exec jekyll serve   # Run locally at http://localhost:4000
+bundle exec jekyll build   # Build the site into _site/
 ```
 
-No tests, linting, or typechecking.
+There is no test, lint, or typecheck configuration. Run `bundle exec jekyll build` before submitting changes to catch Liquid, YAML, and configuration errors.
 
-## Architecture
+## Content and Style
 
-- **Minimal Jekyll**: only plugin is `jekyll-sitemap`; `_config.yml` sets just `url`.
-- **Custom domain**: `CNAME` file at root points to `pedroreis.dev`.
-- **Gemfile.lock is gitignored** — unusual; commit it if you need reproducible builds.
-- **Navigation**: Top nav bar (`_includes/navigation.html`) is rendered in `_layouts/default.html` via `{% include navigation.html %}`. Menu items come from `_data/navigation.yml` and point to homepage sections.
-- **Social links** in `_data/links.yml` — rendered in the contact footer with inline SVG icons via `{% include links.html %}`.
-- **Projects**: `index.html` shows curated projects from `_data/featured_projects.yml`; `/projects.html` shows and filters the full list from `_data/repos.json`.
-- **Archive projection**: `_includes/project-archive.html` joins repository data with `_data/project_metadata.yml` before rendering the two project groups.
-- **Services**: Homepage service cards are managed in `_data/services.yml`.
-- **`assets/js/terminal-reveal.js`** powers the terminal reveal; `assets/js/archive-filter.js` owns project archive filtering.
-- **`_site/`** is generated and gitignored — never edit directly.
+Keep page-specific content in `_data/` where possible and reuse existing includes rather than duplicating markup. Preserve both locale variants when changing user-facing copy; translations live in `_data/translations.yml`. Use two-space indentation in YAML, consistent existing HTML/Liquid formatting, and lowercase kebab-case for new data keys and asset filenames. Prefer edits to `assets/css/style.css` and its existing CSS variables over introducing another styling system.
 
-## repos.json Automation
+For current GitHub repository data, use:
 
-`_data/repos.json` is populated from the GitHub API:
+```bash
+./.github/skills/update-repos-json/scripts/fetch-repos.sh [username]
+```
 
-- **Manual**: `./.github/skills/update-repos-json/scripts/fetch-repos.sh [username]` (requires `jq` + `GITHUB_TOKEN` in `.env`).
-- **Auto**: `.github/workflows/update-repos.yml` runs on every push to `main` and commits changes if repos changed.
-- Private and archived repos are filtered out by default.
+This requires `jq` and `GITHUB_TOKEN` in `.env` or the environment. Never commit `.env` or tokens.
 
-## Content
+## Commits and Pull Requests
 
-- **Featured projects**: edit `_data/featured_projects.yml`; repository URLs and archive data come from `_data/repos.json`.
-- **Archive metadata**: edit `_data/project_metadata.yml` to change project categories.
-- **Projects**: edit `_data/repos.json` or re-run the fetch script.
-- **Navigation**: edit `_data/navigation.yml` (then wire it into a layout if you want it visible).
-
-## Styling
-
-- `assets/css/style.css` — full custom design system with CSS variables for light and dark mode (`--bg`, `--surface`, `--accent`, `--text`).
-- Inter font loaded via Google Fonts.
-- Responsive breakpoints at 900px (2-col grid) and 640px (single column / stacked hero).
-- Prefer edits in `style.css`; avoid new styling systems.
+Recent commits use concise imperative subjects, often with prefixes such as `feat:`, `fix:`, and `chore:`. Follow that pattern and keep unrelated changes separate. Pull requests should explain the user-facing or maintenance impact, identify changed routes or data files, and include screenshots for visual changes. Confirm the local Jekyll build succeeds before requesting review.

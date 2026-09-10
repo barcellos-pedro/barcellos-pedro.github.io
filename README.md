@@ -1,70 +1,59 @@
 # pedroreis.dev
 
-A consulting-focused software engineering portfolio built with Jekyll and hosted
-on GitHub Pages.
+A bilingual consulting-focused software engineering portfolio built with Jekyll and hosted on GitHub Pages.
 
-## Features
+## What is included
 
-- Curated homepage work with consulting-focused descriptions
-- Full GitHub project archive with search and topic filters
-- Services, engagement process, availability, and contact calls to action
-- Responsive warm-paper theme with a dark-mode variant
+- Portuguese and English homepages, project archives, and curriculum pages
+- Curated featured work plus a searchable GitHub repository archive
+- Consulting services, engagement process, availability, and contact calls to action
+- Responsive warm-paper visual system with a dark-mode variant
 
 ## Structure
 
 ```text
-├── _data/
-│   ├── featured_projects.yml  # Homepage project selection
-│   ├── links.yml              # Social links
-│   ├── navigation.yml         # Homepage section navigation
-│   ├── project_metadata.yml  # Portfolio archive metadata
-│   ├── repos.json             # GitHub project data
-│   ├── services.yml           # Consulting services
-│   └── terminal.yml           # Hero terminal content
-├── _includes/                 # Reusable Jekyll components
-├── _includes/project-archive.html # Archive projection and rendering
-├── _layouts/default.html      # Shared page shell and contact footer
-├── assets/css/style.css       # Theme and component styles
-├── assets/js/archive-filter.js # Archive filtering behavior
-├── assets/js/terminal-reveal.js # Terminal reveal behavior
-├── docs/architecture-review.html # Architecture review report
-├── index.html                 # Homepage
-└── projects.html              # Full project archive
+_data/                  Content, translations, navigation, and repository metadata
+_includes/              Shared Liquid components
+_layouts/default.html   Shared page shell and footer
+assets/css/style.css    Theme and component styles
+assets/js/              Archive filtering and terminal/scroll interactions
+docs/                   Supporting documentation
+index.html              Portuguese homepage
+en/                     English page variants
+projects.html           Portuguese project archive
+curriculum.html         Portuguese curriculum page
 ```
 
-## Development
+## Local development
 
 ```bash
 bundle install
 bundle exec jekyll serve
 ```
 
-The site is available at `http://localhost:4000`.
-
-Build the static site with:
+Open `http://localhost:4000`. To validate a production build:
 
 ```bash
 bundle exec jekyll build
 ```
 
-Generated files are written to `_site/`.
+The generated site is written to `_site/`; do not edit that directory directly.
 
-## Content
+## Updating content
 
-Projects are sourced from [`_data/repos.json`](_data/repos.json), which is
-updated by the GitHub API workflow. Curate the homepage in
-[`_data/featured_projects.yml`](_data/featured_projects.yml), and update
-services in [`_data/services.yml`](_data/services.yml). Categorize archive
-projects in [`_data/project_metadata.yml`](_data/project_metadata.yml).
+Edit [`_data/featured_projects.yml`](_data/featured_projects.yml) for homepage projects, [`_data/services.yml`](_data/services.yml) for services, and [`_data/project_metadata.yml`](_data/project_metadata.yml) for archive categories. Update translations in [`_data/translations.yml`](_data/translations.yml), navigation in [`_data/navigation.yml`](_data/navigation.yml), and contact links in [`_data/links.yml`](_data/links.yml).
 
-Edit [`_data/navigation.yml`](_data/navigation.yml) to change the homepage
-section links. Edit [`_data/links.yml`](_data/links.yml) to update contact and
-social links.
+Repository data can be refreshed from GitHub with:
+
+```bash
+./.github/skills/update-repos-json/scripts/fetch-repos.sh barcellos-pedro
+```
+
+The script requires `jq` and a `GITHUB_TOKEN` stored in `.env` or the environment. A GitHub Actions workflow also refreshes `_data/repos.json` after pushes to `main`.
 
 ## Deployment
 
-The site deploys to GitHub Pages from the `main` branch.
+The site is deployed from `main` to GitHub Pages. The custom domain is declared in [`CNAME`](CNAME).
 
-**Website:** [pedroreis.dev](https://pedroreis.dev/)
-
-**GitHub:** [@barcellos-pedro](https://github.com/barcellos-pedro)
+- Website: [pedroreis.dev](https://pedroreis.dev/)
+- GitHub: [@barcellos-pedro](https://github.com/barcellos-pedro)
